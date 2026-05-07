@@ -3,6 +3,7 @@
 FFXIV 全战斗职业数据辅助库 — 零 HiAuRo 依赖，可被任何 Dalamud 插件引用。
 
 [![Build](https://github.com/denghaoxuan991876906/HiAuRo.Helper/actions/workflows/ci.yml/badge.svg)](https://github.com/denghaoxuan991876906/HiAuRo.Helper/actions)
+[![AI Review](https://github.com/denghaoxuan991876906/HiAuRo.Helper/actions/workflows/pr-review.yml/badge.svg)](https://github.com/denghaoxuan991876906/HiAuRo.Helper/actions)
 
 ## 构建
 
