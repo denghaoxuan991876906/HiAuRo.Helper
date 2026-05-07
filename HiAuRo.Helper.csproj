@@ -14,10 +14,15 @@
     <AssemblyName>HiAuRo.Helper</AssemblyName>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <OmenToolsDll>OmenTools\bin\$(Configuration)\OmenTools.dll</OmenToolsDll>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="OmenTools\OmenTools.csproj">
+    <Reference Include="OmenTools">
+      <HintPath>$(OmenToolsDll)</HintPath>
       <Private>False</Private>
-    </ProjectReference>
+    </Reference>
   </ItemGroup>
 
 </Project>
