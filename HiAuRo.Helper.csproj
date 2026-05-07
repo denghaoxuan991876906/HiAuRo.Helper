@@ -5,7 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <DisableDalamudPackager>true</DisableDalamudPackager>
     <RootNamespace>HiAuRo.Helper</RootNamespace>
