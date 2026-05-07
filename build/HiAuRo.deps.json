@@ -1,0 +1,252 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "HiAuRo/0.1.0": {
+        "dependencies": {
+          "Browsingway": "1.7.2",
+          "Browsingway.Common": "1.7.2",
+          "HiAuRo.Helper": "1.0.0",
+          "Microsoft.CodeAnalysis.CSharp": "4.13.0",
+          "Microsoft.CodeAnalysis.Common": "4.13.0"
+        },
+        "runtime": {
+          "HiAuRo.dll": {}
+        }
+      },
+      "FlatSharp.Runtime/7.9.0": {
+        "runtime": {
+          "lib/net9.0/FlatSharp.Runtime.dll": {
+            "assemblyVersion": "7.9.0.0",
+            "fileVersion": "7.9.0.0"
+          }
+        }
+      },
+      "GuerrillaNtp/3.1.0": {
+        "runtime": {
+          "lib/net5.0/GuerrillaNtp.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.Common/4.13.0": {
+        "runtime": {
+          "lib/net9.0/Microsoft.CodeAnalysis.dll": {
+            "assemblyVersion": "4.13.0.0",
+            "fileVersion": "4.1300.25.12011"
+          }
+        },
+        "resources": {
+          "lib/net9.0/cs/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net9.0/de/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net9.0/es/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net9.0/fr/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net9.0/it/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net9.0/ja/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net9.0/ko/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net9.0/pl/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net9.0/ru/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net9.0/tr/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.CSharp/4.13.0": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "4.13.0"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.CodeAnalysis.CSharp.dll": {
+            "assemblyVersion": "4.13.0.0",
+            "fileVersion": "4.1300.25.12011"
+          }
+        },
+        "resources": {
+          "lib/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "SharedMemory/2.3.2": {
+        "runtime": {
+          "lib/netstandard2.1/SharedMemory.dll": {
+            "assemblyVersion": "2.3.2.0",
+            "fileVersion": "2.3.2.0"
+          }
+        }
+      },
+      "TinyPinyin/1.1.0": {
+        "runtime": {
+          "lib/net6.0/TinyPinyin.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
+      "Browsingway/1.7.2": {
+        "dependencies": {
+          "Browsingway.Common": "1.7.2",
+          "SharedMemory": "2.3.2"
+        },
+        "runtime": {
+          "Browsingway.dll": {
+            "assemblyVersion": "1.7.2.0",
+            "fileVersion": "1.7.2.0"
+          }
+        }
+      },
+      "Browsingway.Common/1.7.2": {
+        "dependencies": {
+          "FlatSharp.Runtime": "7.9.0",
+          "SharedMemory": "2.3.2"
+        },
+        "runtime": {
+          "Browsingway.Common.dll": {
+            "assemblyVersion": "1.7.2.0",
+            "fileVersion": "1.7.2.0"
+          }
+        }
+      },
+      "HiAuRo.Helper/1.0.0": {
+        "runtime": {
+          "HiAuRo.Helper.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HiAuRo/0.1.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FlatSharp.Runtime/7.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bm8+WqzEsWNpxqrD5x4x+zQ8dyINlToCreM5FI2oNSfUVc9U9ZB+qztX/jd8rlJb3r0vBSlPwVLpw0xBtPa3Vw==",
+      "path": "flatsharp.runtime/7.9.0",
+      "hashPath": "flatsharp.runtime.7.9.0.nupkg.sha512"
+    },
+    "GuerrillaNtp/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KebM3/iZtZWgeFuGTQJyWu+VQKAeq1xXY9bkSSDv27hALxDtSdJAfPnT8dWpl7ti2B3ajnMj70/VLXY4D3bupg==",
+      "path": "guerrillantp/3.1.0",
+      "hashPath": "guerrillantp.3.1.0.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.Common/4.13.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T8nRl4mAUY4mhdYM4U2ra2vP2EL+ol8Yqwo0gwC/V55vmlXq9NxdIkZJynTpTL1uX/jHijJ90AeOEx4lf7OwzQ==",
+      "path": "microsoft.codeanalysis.common/4.13.0",
+      "hashPath": "microsoft.codeanalysis.common.4.13.0.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.CSharp/4.13.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BsH7Vijbj9IL7Fj4k/ysZSVyLGFqr75wmdFGwCKWJvSjnA1xwPaQ3hkB2BQdHOt5CpEYA6Q0I6Oo5sDTDHqHsg==",
+      "path": "microsoft.codeanalysis.csharp/4.13.0",
+      "hashPath": "microsoft.codeanalysis.csharp.4.13.0.nupkg.sha512"
+    },
+    "SharedMemory/2.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hH34Y9xzvdJpgf/vwyWE/zYlY4BdQS3Zolfdg+8hV9A+UQRsBWyBS62kcLO55mF4etmMoL0PswEbT3lVXJSlFw==",
+      "path": "sharedmemory/2.3.2",
+      "hashPath": "sharedmemory.2.3.2.nupkg.sha512"
+    },
+    "TinyPinyin/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pwe99NXsWkSeJdOwzcweorlyoB2frOlTU37QwzmnnxfRT5vRENXm4UOl5g4Nxq5V9lYOBWK1mZIozFfIlDVjYA==",
+      "path": "tinypinyin/1.1.0",
+      "hashPath": "tinypinyin.1.1.0.nupkg.sha512"
+    },
+    "Browsingway/1.7.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Browsingway.Common/1.7.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HiAuRo.Helper/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
