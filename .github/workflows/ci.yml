@@ -13,9 +13,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Clone OmenTools (outside source tree)
-        run: git clone https://github.com/AtmoOmen/OmenTools.git ../OmenTools --depth 1
+        with:
+          submodules: recursive
 
       - uses: actions/setup-dotnet@v4
         with:

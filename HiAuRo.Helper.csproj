@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OmenTools\OmenTools.csproj">
+    <ProjectReference Include="OmenTools\OmenTools.csproj">
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
