@@ -28,15 +28,6 @@ jobs:
           Invoke-WebRequest https://goatcorp.github.io/dalamud-distrib/latest.zip -OutFile "$dalamudDir.zip"
           Expand-Archive "$dalamudDir.zip" -DestinationPath $dalamudDir
 
-      - name: Build OmenTools
-        run: dotnet build OmenTools\OmenTools.csproj -c Release
-        env:
-          DALAMUD_HOME: ${{ runner.temp }}\dalamud
-
-      - name: Clean obj
-        shell: pwsh
-        run: if (Test-Path obj) { Remove-Item -Recurse -Force obj }
-
       - name: Build
         run: dotnet build HiAuRo.Helper.csproj -c Release
         env:
