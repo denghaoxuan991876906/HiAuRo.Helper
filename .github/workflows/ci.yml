@@ -33,6 +33,9 @@ jobs:
         env:
           DALAMUD_HOME: ${{ runner.temp }}\dalamud
 
+      - name: Clean obj
+        run: if exist obj rmdir /s /q obj
+
       - name: Build
         run: dotnet build HiAuRo.Helper.csproj -c Release
         env:
