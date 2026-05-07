@@ -4,26 +4,22 @@ FFXIV 全战斗职业数据辅助库 — 零 HiAuRo 依赖，可被任何 Dalamu
 
 [![Build](https://github.com/denghaoxuan991876906/HiAuRo.Helper/actions/workflows/ci.yml/badge.svg)](https://github.com/denghaoxuan991876906/HiAuRo.Helper/actions)
 
+## 构建
+
+```bash
+git clone --recursive https://github.com/denghaoxuan991876906/HiAuRo.Helper
+cd HiAuRo.Helper
+export DALAMUD_HOME=/path/to/XIVLauncherCN/addon/Hooks/dev
+dotnet build
+```
+
 ## 依赖
 
 | 项目 | 说明 |
 |------|------|
 | .NET 10.0 | 运行时 |
-| [OmenTools](https://github.com/AtmoOmen/OmenTools) | `DService` + Dalamud 服务封装 |
+| [OmenTools](https://github.com/AtmoOmen/OmenTools) | `DService` + Dalamud 服务封装（git submodule） |
 | Dalamud.CN.NET.Sdk 15.0.0 | 国服 Dalamud SDK |
-
-## 构建
-
-仓库不含 OmenTools 子模块。在 HiAuRo 父仓库中构建，或手动提供 `../OmenTools/`：
-
-```bash
-# 方式 1: 在 HiAuRo 父仓库中（推荐）
-cd HiAuRo && dotnet build HiAuRo.Helper/HiAuRo.Helper.csproj
-
-# 方式 2: 独立构建
-git clone https://github.com/AtmoOmen/OmenTools.git ../OmenTools
-dotnet build
-```
 
 ## 覆盖职业
 
