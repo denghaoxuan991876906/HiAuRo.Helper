@@ -23,6 +23,14 @@
       <HintPath>$(OmenToolsDll)</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="GuerrillaNtp">
+      <HintPath>OmenTools\bin\$(Configuration)\GuerrillaNtp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TinyPinyin">
+      <HintPath>OmenTools\bin\$(Configuration)\TinyPinyin.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>
