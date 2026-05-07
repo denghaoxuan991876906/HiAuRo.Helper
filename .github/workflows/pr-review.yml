@@ -1,0 +1,46 @@
+name: AI PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  DEEPSEEK_MODEL: deepseek-v4-flash
+  DEEPSEEK_API_BASE: https://api.deepseek.com
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: AI 审查 PR
+        id: ai-review
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: python3 .github/scripts/pr_review.py
+
+      - name: 发表审查评论
+        if: ${{ steps.ai-review.outputs.verdict != 'SKIP' && steps.ai-review.outputs.verdict != 'ERROR' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr comment $PR_NUMBER --body-file review_body.md
+
+      - name: 自动合并
+        if: ${{ steps.ai-review.outputs.verdict == 'APPROVE' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "AI 审查通过，立即合并 PR #$PR_NUMBER"
+          gh pr merge $PR_NUMBER --squash --delete-branch || \
+            gh pr merge $PR_NUMBER --auto --squash --delete-branch
