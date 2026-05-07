@@ -8,6 +8,7 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <DisableDalamudPackager>true</DisableDalamudPackager>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <RootNamespace>HiAuRo.Helper</RootNamespace>
     <AssemblyName>HiAuRo.Helper</AssemblyName>
   </PropertyGroup>
