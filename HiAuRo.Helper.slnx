@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="HiAuRo.Helper/HiAuRo.Helper.csproj" />
+  <Project Path="OmenTools/OmenTools.csproj" />
+</Solution>
