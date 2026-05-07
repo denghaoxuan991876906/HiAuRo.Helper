@@ -31,7 +31,8 @@ jobs:
           Expand-Archive "$dir.zip" -DestinationPath $dir
 
       - name: Build
-        run: dotnet build HiAuRo.Helper.csproj -c Release
+        working-directory: ${{ github.workspace }}
+        run: dotnet build -c Release
         env:
           DALAMUD_HOME: ${{ runner.temp }}\dalamud
 
