@@ -34,7 +34,8 @@ jobs:
           DALAMUD_HOME: ${{ runner.temp }}\dalamud
 
       - name: Clean obj
-        run: if exist obj rmdir /s /q obj
+        shell: pwsh
+        run: if (Test-Path obj) { Remove-Item -Recurse -Force obj }
 
       - name: Build
         run: dotnet build HiAuRo.Helper.csproj -c Release
