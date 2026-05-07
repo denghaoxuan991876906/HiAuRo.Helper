@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: write
-  packages: write
 
 jobs:
   build:
@@ -17,9 +16,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-
-      - name: Clone OmenTools
-        run: git clone https://github.com/AtmoOmen/OmenTools.git ../OmenTools --depth 1
 
       - uses: actions/setup-dotnet@v4
         with:
@@ -33,7 +29,7 @@ jobs:
           Expand-Archive "$dalamudDir.zip" -DestinationPath $dalamudDir
 
       - name: Build OmenTools
-        run: dotnet build ../OmenTools/OmenTools.csproj -c Release
+        run: dotnet build OmenTools\OmenTools.csproj -c Release
         env:
           DALAMUD_HOME: ${{ runner.temp }}\dalamud
 
@@ -42,55 +38,23 @@ jobs:
         env:
           DALAMUD_HOME: ${{ runner.temp }}\dalamud
 
-      - name: Collect DLLs for NuGet
-        shell: pwsh
-        run: |
-          $dalamudDir = "${{ runner.temp }}\dalamud"
-          New-Item -ItemType Directory -Force build | Out-Null
-
-          Copy-Item bin\Release\HiAuRo.Helper.dll build\
-          Copy-Item ..\OmenTools\bin\Release\OmenTools.dll build\
-
-          $hiauro = Invoke-RestMethod "https://api.github.com/repos/denghaoxuan991876906/HiAuRo/releases/latest"
-          $zipAsset = $hiauro.assets | Where-Object { $_.name -like "*.zip" } | Select-Object -First 1
-          if ($zipAsset) {
-            Invoke-WebRequest $zipAsset.browser_download_url -OutFile hiauro.zip
-            Expand-Archive hiauro.zip -DestinationPath hiauro_tmp -Force
-            Copy-Item hiauro_tmp\HiAuRo.dll build\ -ErrorAction SilentlyContinue
-          }
-
-          $dlls = @("Dalamud.dll","Dalamud.Common.dll","Dalamud.Bindings.ImGui.dll",
-            "FFXIVClientStructs.dll","Lumina.dll","Lumina.Excel.dll",
-            "ImGuiScene.dll","TerraFX.Interop.Windows.dll",
-            "Newtonsoft.Json.dll","Serilog.dll","CheapLoc.dll")
-          foreach ($dll in $dlls) {
-            Copy-Item "$dalamudDir\$dll" build\ -ErrorAction SilentlyContinue
-          }
-
-      - name: Pack NuGet
-        shell: pwsh
-        run: |
-          Invoke-WebRequest https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile nuget.exe
-          .\nuget.exe pack HiAuRo.Sdk.nuspec -OutputDirectory nuget -BasePath .
-
-      - name: Upload NuGet artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: HiAuRo.Sdk.nupkg
-          path: nuget/*.nupkg
+          name: HiAuRo.Helper
+          path: bin/Release/HiAuRo.Helper.dll
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
     needs: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: HiAuRo.Sdk.nupkg
+          name: HiAuRo.Helper
 
-      - uses: actions/setup-dotnet@v4
+      - name: Create Release
+        uses: softprops/action-gh-release@v3
         with:
-          dotnet-version: '10.0.x'
-
-      - name: Publish to GitHub Packages
-        run: dotnet nuget push *.nupkg --source "https://nuget.pkg.github.com/denghaoxuan991876906/index.json" --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
+          files: HiAuRo.Helper.dll
+          generate_release_notes: true
