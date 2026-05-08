@@ -11,12 +11,19 @@
     <DisableDalamudPackager>true</DisableDalamudPackager>
     <RootNamespace>HiAuRo.Helper</RootNamespace>
     <AssemblyName>HiAuRo.Helper</AssemblyName>
+
+    <PackageId>HiAuRo.Helper</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>denghaoxuan991876906</Authors>
+    <Description>FFXIV 全战斗职业数据辅助库 · 零 HiAuRo 依赖 · 静态 API 开箱即用</Description>
+    <PackageTags>FFXIV;Dalamud;ACR;rotation</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OmenTools\OmenTools.csproj"
                       Condition="Exists('..\OmenTools\OmenTools.csproj')">
       <Private>False</Private>
+      <PrivateAssets>all</PrivateAssets>
     </ProjectReference>
   </ItemGroup>
 

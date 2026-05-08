@@ -4,7 +4,7 @@ public static class HelperRuntime
 {
     private static IHelperContext? _ctx;
 
-    public static void Initialize(IHelperContext context)
+    internal static void Initialize(IHelperContext context)
     {
         _ctx = context;
     }
