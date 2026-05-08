@@ -14,6 +14,37 @@ export DALAMUD_HOME=/path/to/XIVLauncherCN/addon/Hooks/dev
 dotnet build
 ```
 
+## 在你的 ACR 项目中引用
+
+### 1. 添加 submodule
+
+```bash
+cd YourACR
+git submodule add https://github.com/denghaoxuan991876906/HiAuRo.Helper.git Helper
+```
+
+### 2. 加入你的 solution
+
+```bash
+dotnet sln YourACR.slnx add Helper/HiAuRo.Helper/HiAuRo.Helper.csproj
+```
+
+### 3. 添加项目引用
+
+在你的 `.csproj` 中：
+
+```xml
+<ItemGroup>
+    <ProjectReference Include="Helper\HiAuRo.Helper\HiAuRo.Helper.csproj">
+        <Private>False</Private>
+    </ProjectReference>
+</ItemGroup>
+```
+
+### 4. OmenTools 不冲突
+
+Helper 对 OmenTools 的引用是**条件引用**——只在 submodule 存在时生效。你的 ACR 项目的 OmenTools 引用不受影响，Helper 会直接使用你已有的 OmenTools 类型。
+
 ## 依赖
 
 | 项目 | 说明 |
