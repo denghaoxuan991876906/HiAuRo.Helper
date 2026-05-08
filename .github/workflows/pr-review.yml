@@ -15,7 +15,7 @@ env:
 jobs:
   review:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
@@ -35,36 +35,11 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: gh pr comment $PR_NUMBER --body-file review_body.md
 
-      - name: 等待 CI 编译通过
+      - name: 启用自动合并
         if: ${{ steps.ai-review.outputs.verdict == 'APPROVE' }}
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          echo "AI 审查通过，等待 CI 编译完成..."
-
-          # 轮询 CI build check 状态，最长等待 10 分钟
-          for i in $(seq 1 30); do
-            STATUS=$(gh pr checks "$PR_NUMBER" --json name,conclusion -q '.[] | select(.name=="build") | .conclusion' 2>/dev/null || echo "")
-            if [ "$STATUS" = "SUCCESS" ]; then
-              echo "✅ CI 编译通过！可以合并。"
-              exit 0
-            elif [ "$STATUS" = "FAILURE" ] || [ "$STATUS" = "CANCELLED" ]; then
-              echo "❌ CI 编译失败，取消自动合并"
-              exit 1
-            fi
-            echo "  等待 CI 完成... ($i/30)"
-            sleep 20
-          done
-
-          echo "❌ CI 超时未完成，取消自动合并"
-          exit 1
-
-      - name: 自动合并
-        if: ${{ steps.ai-review.outputs.verdict == 'APPROVE' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          echo "AI 审查通过 + CI 编译通过，合并 PR #$PR_NUMBER"
-          gh pr merge "$PR_NUMBER" --squash --delete-branch
+          echo "AI 审查通过，启用自动合并 PR #$PR_NUMBER"
+          gh pr merge "$PR_NUMBER" --auto --squash --delete-branch
