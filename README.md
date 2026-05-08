@@ -24,12 +24,15 @@ dotnet build
 
 ## ACR 作者：如何引用
 
-### 1. 添加 submodule
+### 1. 添加 submodule（含嵌套的 OmenTools）
 
 ```bash
 cd YourACR
 git submodule add https://github.com/denghaoxuan991876906/HiAuRo.Helper.git Helper
+git submodule update --init --recursive
 ```
+
+> **必须** 加 `--init --recursive`，否则 Helper 内的 OmenTools 子目录为空，编译会报 `CS0246: 未能找到 OmenTools`。
 
 ### 2. 加入 solution
 

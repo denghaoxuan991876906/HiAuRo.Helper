@@ -1,6 +1,3 @@
-using OmenTools;
-using Dalamud.Game.ClientState.JobGauge.Types;
-
 namespace HiAuRo.Helper;
 
 /// <summary>
