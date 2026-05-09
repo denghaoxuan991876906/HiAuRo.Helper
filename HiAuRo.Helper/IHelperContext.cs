@@ -72,4 +72,18 @@ internal interface IHelperContext
 
     /// <summary>技能变身 ID（如无变身则返回原 ID）</summary>
     uint GetActionChange(uint spellId) => spellId;
+
+    // ── 队伍查询 ──
+
+    /// <summary>队伍人数（含自身，index 0 = 自身）</summary>
+    int GetPartyCount() => 0;
+
+    /// <summary>指定索引的队员是否存活</summary>
+    bool IsPartyMemberAlive(int index) => false;
+
+    /// <summary>指定索引的队员当前血量</summary>
+    float GetPartyMemberHP(int index) => 0f;
+
+    /// <summary>指定索引的队员最大血量</summary>
+    float GetPartyMemberMaxHP(int index) => 0f;
 }

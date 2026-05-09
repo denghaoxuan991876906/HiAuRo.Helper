@@ -11,9 +11,10 @@
     <DisableDalamudPackager>true</DisableDalamudPackager>
     <RootNamespace>HiAuRo.Helper</RootNamespace>
     <AssemblyName>HiAuRo.Helper</AssemblyName>
+    <OutputPath>D:\HAR\HiAuRo\</OutputPath>
 
     <PackageId>HiAuRo.Helper</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>denghaoxuan991876906</Authors>
     <Description>FFXIV 全战斗职业数据辅助库 · 零 HiAuRo 依赖 · 静态 API 开箱即用</Description>
     <PackageTags>FFXIV;Dalamud;ACR;rotation</PackageTags>

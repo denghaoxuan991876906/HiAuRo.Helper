@@ -215,5 +215,51 @@ public class WARHelper
         return 是否在移动中() && 获取周围敌人数量(搜索范围) >= 敌人数阈值;
     }
 
+    public static int 获取血量最低成员索引()
+    {
+        int count = HelperRuntime.GetPartyCount();
+        if (count <= 1) return -1;
+
+        int lowestIdx = -1;
+        float lowestHp = float.MaxValue;
+
+        for (int i = 1; i < count; i++)
+        {
+            if (!HelperRuntime.IsPartyMemberAlive(i)) continue;
+            float hp = HelperRuntime.GetPartyMemberHP(i);
+            if (hp < lowestHp)
+            {
+                lowestHp = hp;
+                lowestIdx = i;
+            }
+        }
+
+        return lowestIdx;
+    }
+
+    public static int 获取血量百分比最低成员索引()
+    {
+        int count = HelperRuntime.GetPartyCount();
+        if (count <= 1) return -1;
+
+        int lowestIdx = -1;
+        float lowestPct = float.MaxValue;
+
+        for (int i = 1; i < count; i++)
+        {
+            if (!HelperRuntime.IsPartyMemberAlive(i)) continue;
+            float maxHp = HelperRuntime.GetPartyMemberMaxHP(i);
+            if (maxHp <= 0) continue;
+            float pct = HelperRuntime.GetPartyMemberHP(i) / maxHp;
+            if (pct < lowestPct)
+            {
+                lowestPct = pct;
+                lowestIdx = i;
+            }
+        }
+
+        return lowestIdx;
+    }
+
     #endregion
 }
