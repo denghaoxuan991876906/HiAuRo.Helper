@@ -73,4 +73,7 @@ public static class HelperRuntime
 
     internal static float GetPartyMemberMaxHP(int index) =>
         _ctx?.GetPartyMemberMaxHP(index) ?? 0f;
+
+    internal static float GetPartyMemberHPPercent(int index) =>
+        _ctx?.GetPartyMemberHPPercent(index) ?? 0f;
 }

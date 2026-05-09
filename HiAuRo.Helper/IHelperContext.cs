@@ -86,4 +86,7 @@ internal interface IHelperContext
 
     /// <summary>指定索引的队员最大血量</summary>
     float GetPartyMemberMaxHP(int index) => 0f;
+
+    /// <summary>指定索引的队员血量百分比（0.0-1.0）</summary>
+    float GetPartyMemberHPPercent(int index) => 0f;
 }

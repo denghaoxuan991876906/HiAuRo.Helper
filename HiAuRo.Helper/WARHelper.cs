@@ -248,9 +248,7 @@ public class WARHelper
         for (int i = 1; i < count; i++)
         {
             if (!HelperRuntime.IsPartyMemberAlive(i)) continue;
-            float maxHp = HelperRuntime.GetPartyMemberMaxHP(i);
-            if (maxHp <= 0) continue;
-            float pct = HelperRuntime.GetPartyMemberHP(i) / maxHp;
+            float pct = HelperRuntime.GetPartyMemberHPPercent(i);
             if (pct < lowestPct)
             {
                 lowestPct = pct;
