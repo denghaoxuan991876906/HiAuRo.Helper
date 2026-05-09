@@ -11,7 +11,6 @@
     <DisableDalamudPackager>true</DisableDalamudPackager>
     <RootNamespace>HiAuRo.Helper</RootNamespace>
     <AssemblyName>HiAuRo.Helper</AssemblyName>
-    <OutputPath>D:\HAR\HiAuRo\</OutputPath>
 
     <PackageId>HiAuRo.Helper</PackageId>
     <Version>0.1.1</Version>
