@@ -17,4 +17,46 @@ public static class HelperRuntime
 
     internal static T? GetGauge<T>() where T : class =>
         _ctx?.GetGauge<T>();
+
+    internal static float GetAuraTimeLeft(uint buffId) =>
+        _ctx?.GetAuraTimeLeft(buffId) ?? 0f;
+
+    internal static int GetAuraStackCount(uint buffId) =>
+        _ctx?.GetAuraStackCount(buffId) ?? 0;
+
+    internal static float GetCharges(uint spellId) =>
+        _ctx?.GetCharges(spellId) ?? 0f;
+
+    internal static float GetCooldownRemaining(uint spellId) =>
+        _ctx?.GetCooldownRemaining(spellId) ?? 0f;
+
+    internal static uint GetLastComboSpellId() =>
+        _ctx?.GetLastComboSpellId() ?? 0;
+
+    internal static int GetGCDCooldown() =>
+        _ctx?.GetGCDCooldown() ?? 0;
+
+    internal static bool RecentlyUsedSpell(uint spellId, int ms) =>
+        _ctx?.RecentlyUsedSpell(spellId, ms) ?? false;
+
+    internal static bool IsMoving() =>
+        _ctx?.IsMoving() ?? false;
+
+    internal static bool IsInCombat() =>
+        _ctx?.IsInCombat() ?? false;
+
+    internal static int GetNearbyEnemyCount(float range) =>
+        _ctx?.GetNearbyEnemyCount(range) ?? 0;
+
+    internal static float GetHPPercent() =>
+        _ctx?.GetHPPercent() ?? 100f;
+
+    internal static int GetCurrentLevel() =>
+        _ctx?.GetCurrentLevel() ?? 0;
+
+    internal static bool IsCurrentTargetInvincible() =>
+        _ctx?.IsCurrentTargetInvincible() ?? false;
+
+    internal static uint GetActionChange(uint spellId) =>
+        _ctx?.GetActionChange(spellId) ?? spellId;
 }
