@@ -80,6 +80,42 @@ public class BLMHelper
 
     #endregion
 
+    #region 辅助方法
+
+    public static bool 可瞬发 => Has即刻 || Has三连;
+
+    public static bool 补dot()
+    {
+        var level = HelperRuntime.GetCurrentLevel();
+        if (level >= 92)
+            return !HelperRuntime.HasStatusOnTarget(3871) && !HelperRuntime.HasStatusOnTarget(3872);
+        if (level >= 45)
+            return !HelperRuntime.HasStatusOnTarget(163) && !HelperRuntime.HasStatusOnTarget(1210);
+        return false;
+    }
+
+    public static bool 三目标aoe()
+    {
+        return HelperRuntime.GetNearbyEnemyCount(25) >= 3;
+    }
+
+    public static bool 双目标aoe()
+    {
+        var count = HelperRuntime.GetNearbyEnemyCount(25);
+        return count >= 2 && count < 3;
+    }
+
+    public static bool 群怪模式 => 三目标aoe() || 双目标aoe();
+
+    public static uint 冰火状态()
+    {
+        if (冰状态) return 1;
+        if (火状态) return 2;
+        return 0;
+    }
+
+    #endregion
+
     /// <summary>黑魔法师职业量谱</summary>
     public static BLMGauge Gauge => HelperRuntime.GetGauge<BLMGauge>();
 
