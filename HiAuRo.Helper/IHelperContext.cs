@@ -68,6 +68,9 @@ internal interface IHelperContext
     /// <summary>当前目标是否无敌（已死/不可攻击）</summary>
     bool IsCurrentTargetInvincible() => false;
 
+    /// <summary>当前目标周围 <paramref name="range"/> 码内敌人数量</summary>
+    int GetEnemyCountNearTarget(float range) => 0;
+
     // ── 技能数据 ──
 
     /// <summary>技能变身 ID（如无变身则返回原 ID）</summary>
