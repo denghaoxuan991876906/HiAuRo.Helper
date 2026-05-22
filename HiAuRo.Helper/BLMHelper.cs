@@ -59,7 +59,7 @@ public class BLMHelper
     public const uint 沉稳buff = 160;
     public const uint 魔罩buff = 168;
     public const uint 三连buff = 1211;
-    public const uint 雷云buff = 3871;
+    public const uint 雷云buff = 3870;
     public const uint 火苗buff = 165;
     public const uint 魔纹存在buff = 737;
     public const uint 魔纹加速buff = 738;
