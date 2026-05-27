@@ -28,6 +28,7 @@ public class GNBHelper
     public const uint 大星云 = 3838;//Great Nebula
     public const uint 伪装 = 1832;
     public const uint 极光 = 1835;
+    public const uint 光之心 = 1839; //
     #endregion
 
     /// <summary>绝枪战士职业量谱</summary>
