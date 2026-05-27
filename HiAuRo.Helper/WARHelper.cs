@@ -93,7 +93,7 @@ public class WARHelper
 
     public const uint _原初的解放 = 1177;
     public const uint _狂暴 = 86;
-    public const uint _原初的混沌 = 1856;
+    public const uint _原初的混沌 = 1897;
     public const uint _红斩 = 2677;
     public const uint _战栗 = 87;
     public const uint _复仇 = 89;

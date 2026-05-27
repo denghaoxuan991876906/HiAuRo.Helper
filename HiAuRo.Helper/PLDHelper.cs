@@ -1,23 +1,139 @@
-
 namespace HiAuRo.Helper;
 
 /// <summary>
-/// 骑士 (PLD) 职业快捷入口 —— 常用状态短路径
+/// 骑士 (PLD) 职业入口 —— 技能/Buff ID 常量 + 状态查询
 /// </summary>
 public class PLDHelper
 {
 
-    #region 技能 / Buff ID
+    #region 技能 ID 常量
 
-    public const uint Requiescat          = 1368;   // 安魂祈祷
-    public const uint FightOrFlight       = 76;     // 战逃反应
-    public const uint DivineMight         = 2673;   // 圣光之力 (赎罪剑预备)
-    public const uint HolySheltron        = 2674;   // 圣盾阵
-    public const uint Sentinel            = 74;     // 预警
-    public const uint HallowedGround      = 82;     // 神圣领域
-    public const uint Cover               = 80;     // 保护
+    public static class Skills
+    {
+        // ── GCD 连击 ──
+        public const uint
+            先锋剑 = 9,
+            暴乱剑 = 15,
+            战女神之怒 = 21,
+            投盾 = 24,
+            全蚀斩 = 7381,
+            日珥斩 = 16457,
+            沥血剑 = 3538,
+            王权剑 = 3539;
+
+        // ── 魔法 GCD ──
+        public const uint
+            圣灵 = 7384,
+            圣环 = 16458;
+
+        // ── 大宝剑连击 ──
+        public const uint
+            悔罪 = 16459,
+            信念之剑 = 25748,
+            真理之剑 = 25749,
+            英勇之剑 = 25750;
+
+        // ── 赎罪剑系列 ──
+        public const uint
+            赎罪剑 = 16460,
+            祈祷剑 = 36918,
+            葬送剑 = 36919,
+            偿赎剑 = 25747;
+
+        // ── 爆发技能 ──
+        public const uint
+            战逃反应 = 20,
+            安魂祈祷 = 7383,
+            绝对统治 = 36921,
+            荣耀之剑 = 36922;
+
+        // ── 能力技 ──
+        public const uint
+            厄运流转 = 23,
+            深奥之灵 = 29,
+            调停 = 16461;
+
+        // ── 盾姿 ──
+        public const uint
+            钢铁信念 = 28,
+            解除钢铁信念 = 32065;
+
+        // ── 防御技能 ──
+        public const uint
+            盾阵 = 3542,
+            预警 = 17,
+            极致防御 = 36920,
+            壁垒 = 22,
+            神圣领域 = 30,
+            圣光幕帘 = 3540,
+            干预 = 7382,
+            武装戍卫 = 7385;
+
+        // ── 职能技能 ──
+        public const uint
+            铁壁 = 7531,
+            亲疏自行 = 7548,
+            挑衅 = 7533,
+            雪仇 = 7535,
+            退避 = 7537,
+            下踢 = 7540,
+            插言 = 7538,
+            冲刺 = 3,
+            内丹 = 7541,
+            浴血 = 7542,
+            醒梦 = 7562;
+    }
 
     #endregion
+
+    #region Buff ID 常量
+
+    public static class Buffs
+    {
+        public const uint
+            战逃反应 = 76,
+            安魂祈祷 = 1368,
+            神圣魔法效果提高 = 2673,
+            赎罪剑预备 = 1902,
+            祈祷剑预备 = 3827,
+            葬送剑预备 = 3828,
+            沥血剑预备 = 3847,
+            荣耀之剑预备 = 3831,
+            圣盾阵 = 2674,
+            预警 = 74,
+            极致护盾 = 3830,
+            神圣领域 = 82,
+            壁垒 = 77,
+            钢铁信念 = 79,
+            铁壁 = 1191,
+            亲疏自行 = 1209,
+            雪仇 = 1193,
+            生还 = 418,
+            加速器炸弹 = 3802;
+    }
+
+    #endregion
+
+    #region 内部 Buff ID (状态属性快捷引用)
+
+    public const uint _战逃反应 = 76;
+    public const uint _安魂祈祷 = 1368;
+    public const uint _神圣魔法效果提高 = 2673;
+    public const uint _赎罪剑预备 = 1902;
+    public const uint _祈祷剑预备 = 3827;
+    public const uint _葬送剑预备 = 3828;
+    public const uint _沥血剑预备 = 3847;
+    public const uint _荣耀之剑预备 = 3831;
+    public const uint _圣盾阵 = 2674;
+    public const uint _预警 = 74;
+    public const uint _极致护盾 = 3830;
+    public const uint _神圣领域 = 82;
+    public const uint _壁垒 = 77;
+    public const uint _钢铁信念 = 79;
+
+    #endregion
+
+    #region 量谱
 
     /// <summary>骑士职业量谱</summary>
     public static PLDGauge? Gauge => HelperRuntime.GetGauge<PLDGauge>();
@@ -25,15 +141,135 @@ public class PLDHelper
     /// <summary>忠义值 (0-100)</summary>
     public static byte OathGauge => Gauge?.OathGauge ?? 0;
 
-    /// <summary>安魂祈祷是否激活</summary>
-    public static bool HasRequiescat =>
-        HelperRuntime.HasStatus(Requiescat);
+    #endregion
 
-    /// <summary>战逃反应是否激活</summary>
-    public static bool HasFightOrFlight =>
-        HelperRuntime.HasStatus(FightOrFlight);
+    #region 实例属性 — 状态查询
 
-    /// <summary>圣光之力 (赎罪剑预备) 是否激活</summary>
-    public static bool HasDivineMight =>
-        HelperRuntime.HasStatus(DivineMight);
+    public static bool Has战逃反应 => HelperRuntime.HasStatus(_战逃反应);
+    public static bool Has安魂祈祷 => HelperRuntime.HasStatus(_安魂祈祷);
+    public static bool Has神圣魔法效果提高 => HelperRuntime.HasStatus(_神圣魔法效果提高);
+    public static bool Has赎罪剑预备 => HelperRuntime.HasStatus(_赎罪剑预备);
+    public static bool Has祈祷剑预备 => HelperRuntime.HasStatus(_祈祷剑预备);
+    public static bool Has葬送剑预备 => HelperRuntime.HasStatus(_葬送剑预备);
+    public static bool Has沥血剑预备 => HelperRuntime.HasStatus(_沥血剑预备);
+    public static bool Has荣耀之剑预备 => HelperRuntime.HasStatus(_荣耀之剑预备);
+    public static bool Has圣盾阵 => HelperRuntime.HasStatus(_圣盾阵);
+    public static bool Has预警 => HelperRuntime.HasStatus(_预警);
+    public static bool Has极致护盾 => HelperRuntime.HasStatus(_极致护盾);
+    public static bool Has神圣领域 => HelperRuntime.HasStatus(_神圣领域);
+    public static bool Has壁垒 => HelperRuntime.HasStatus(_壁垒);
+    public static bool Has钢铁信念 => HelperRuntime.HasStatus(_钢铁信念);
+
+    /// <summary>是否有任意赎罪剑预备 (赎罪/祈祷/葬送)</summary>
+    public static bool Has任意赎罪剑预备 =>
+        Has赎罪剑预备 || Has祈祷剑预备 || Has葬送剑预备;
+
+    #endregion
+
+    #region 战斗运行时
+
+    public static float 获取Buff剩余时间(uint buffId)
+    {
+        return HelperRuntime.HasStatus(buffId)
+            ? HelperRuntime.GetAuraTimeLeft(buffId) : 0f;
+    }
+
+    public static int 获取Buff层数(uint buffId)
+    {
+        return HelperRuntime.HasStatus(buffId)
+            ? HelperRuntime.GetAuraStackCount(buffId) : 0;
+    }
+
+    public static float 获取技能充能层数(uint spellId) =>
+        HelperRuntime.GetCharges(spellId);
+
+    public static float 获取技能最大充能层数(uint spellId)
+    {
+        if (spellId == Skills.调停) return 2;
+        return 1;
+    }
+
+    public static float 获取技能剩余CD(uint spellId)
+    {
+        var actualId = HelperRuntime.GetActionChange(spellId);
+        return HelperRuntime.GetCooldownRemaining(actualId);
+    }
+
+    public static bool 技能CD快好了(uint spellId, float seconds)
+    {
+        var cd = 获取技能剩余CD(spellId);
+        return cd > 0 && cd < seconds * 1000;
+    }
+
+    public static uint 获取上一个连击技能ID() => HelperRuntime.GetLastComboSpellId();
+    public static int 获取GCD剩余时间() => HelperRuntime.GetGCDCooldown();
+    public static bool 技能最近是否使用过(uint spellId, int ms) =>
+        HelperRuntime.RecentlyUsedSpell(spellId, ms);
+
+    #endregion
+
+    #region 目标与战斗环境
+
+    public static bool 目标是否无敌() =>
+        HelperRuntime.IsCurrentTargetInvincible();
+
+    public static int 获取周围敌人数量(float range = 5f) =>
+        HelperRuntime.GetNearbyEnemyCount(range);
+
+    public static bool 是否在战斗中() => HelperRuntime.IsInCombat();
+    public static bool 是否在移动中() => HelperRuntime.IsMoving();
+
+    public static float 获取血量百分比() => HelperRuntime.GetHPPercent();
+
+    public static bool 是否在拉怪中(bool 启用自动拉怪, bool 启用拉怪中检测, float 搜索范围, int 敌人数阈值)
+    {
+        if (!启用自动拉怪 || !启用拉怪中检测) return false;
+        return 是否在移动中() && 获取周围敌人数量(搜索范围) >= 敌人数阈值;
+    }
+
+    public static int 获取血量最低成员索引()
+    {
+        int count = HelperRuntime.GetPartyCount();
+        if (count <= 1) return -1;
+
+        int lowestIdx = -1;
+        float lowestHp = float.MaxValue;
+
+        for (int i = 1; i < count; i++)
+        {
+            if (!HelperRuntime.IsPartyMemberAlive(i)) continue;
+            float hp = HelperRuntime.GetPartyMemberHP(i);
+            if (hp < lowestHp)
+            {
+                lowestHp = hp;
+                lowestIdx = i;
+            }
+        }
+
+        return lowestIdx;
+    }
+
+    public static int 获取血量百分比最低成员索引()
+    {
+        int count = HelperRuntime.GetPartyCount();
+        if (count <= 1) return -1;
+
+        int lowestIdx = -1;
+        float lowestPct = float.MaxValue;
+
+        for (int i = 1; i < count; i++)
+        {
+            if (!HelperRuntime.IsPartyMemberAlive(i)) continue;
+            float pct = HelperRuntime.GetPartyMemberHPPercent(i);
+            if (pct < lowestPct)
+            {
+                lowestPct = pct;
+                lowestIdx = i;
+            }
+        }
+
+        return lowestIdx;
+    }
+
+    #endregion
 }
