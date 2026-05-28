@@ -56,7 +56,7 @@ public class MCHHelper
     #endregion
 
     #region BUFF
-
+    public const uint 野火buff = 1946;
     public const uint 整备buff = 851;
     public const uint 过热buff = 2688; 
     public const uint 掘地飞轮预备buff = 3865;
@@ -69,7 +69,7 @@ public class MCHHelper
 
     public const uint 武装解除debuff = 860;
     public const uint 毒菌冲击dot = 1866;
-    public const uint QueenReady = 1726;
+    //public const uint QueenReady = 1726;
     #endregion
 
     /// <summary>机工士职业量谱</summary>
@@ -92,7 +92,7 @@ public class MCHHelper
     public static bool HasReassembled => HelperRuntime.HasStatus(整备buff);
 
     /// <summary>野火是否激活</summary>
-    public static bool HasWildfire => HelperRuntime.HasStatus(野火);
+    public static bool HasWildfire => HelperRuntime.HasStatus(野火buff);
 
     /// <summary>过热是否激活</summary>
     public static bool HasHypercharge => HelperRuntime.HasStatus(过热buff);
