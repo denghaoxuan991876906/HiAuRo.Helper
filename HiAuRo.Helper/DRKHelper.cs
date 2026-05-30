@@ -7,6 +7,140 @@ namespace HiAuRo.Helper;
 public class DRKHelper
 {
 
+    #region CN — 中文名称 (verified via xivapi-v2.xivcdn.com)
+
+    public static class CN
+    {
+        public static class Skills
+        {
+            public const uint
+                重斩 = 3617,
+                释放 = 3621,
+                吸收斩 = 3623,
+                伤残 = 3624,
+                嗜血 = 3625,
+                深恶痛绝 = 3629,
+                噬魂斩 = 3632,
+                弃明投暗 = 3634,
+                暗影墙 = 3636,
+                行尸走肉 = 3638,
+                腐秽大地 = 3639,
+                吸血深渊 = 3641,
+                精雕怒斩 = 3643,
+                血乱 = 7390,
+                寂灭 = 7391,
+                血溅 = 7392,
+                至黑之夜 = 7393,
+                铁壁 = 7531,
+                挑衅 = 7533,
+                雪仇 = 7535,
+                退避 = 7537,
+                插言 = 7538,
+                下踢 = 7540,
+                亲疏自行 = 7548,
+                暗黑波动 = 16466,
+                暗黑锋 = 16467,
+                刚魂 = 16468,
+                暗影波动 = 16469,
+                暗影锋 = 16470,
+                暗黑布道 = 16471,
+                掠影示现 = 16472,
+                献奉 = 25754,
+                腐秽黑暗 = 25755,
+                暗影使者 = 25757,
+                解除深恶痛绝 = 32067,
+                暗影步 = 36926,
+                暗影卫 = 36927,
+                血红乱 = 36928,
+                报应 = 36929,
+                戮山 = 36930,
+                刺穿 = 36931,
+                掠影的蔑视 = 36932;
+        }
+
+        public static class Buffs
+        {
+            public const uint
+                血乱 = 3836,
+                嗜血 = 742,
+                暗黑 = 751,
+                暗影墙 = 747,
+                行尸走肉 = 810,
+                献奉 = 2578,
+                腐秽大地 = 749,
+                掠影的蔑视预备 = 3837;
+        }
+    }
+
+    #endregion
+
+    #region EN — English Names (verified via xivapi-v2.xivcdn.com)
+
+    public static class EN
+    {
+        public static class Skills
+        {
+            public const uint
+                HardSlash = 3617,
+                Unleash = 3621,
+                SyphonStrike = 3623,
+                Unmend = 3624,
+                BloodWeapon = 3625,
+                Grit = 3629,
+                Souleater = 3632,
+                DarkMind = 3634,
+                ShadowWall = 3636,
+                LivingDead = 3638,
+                SaltedEarth = 3639,
+                AbyssalDrain = 3641,
+                CarveAndSpit = 3643,
+                Delirium = 7390,
+                Quietus = 7391,
+                Bloodspiller = 7392,
+                TheBlackestNight = 7393,
+                Rampart = 7531,
+                Provoke = 7533,
+                Reprisal = 7535,
+                Shirk = 7537,
+                Interject = 7538,
+                LowBlow = 7540,
+                ArmsLength = 7548,
+                FloodOfDarkness = 16466,
+                EdgeOfDarkness = 16467,
+                StalwartSoul = 16468,
+                FloodOfShadow = 16469,
+                EdgeOfShadow = 16470,
+                DarkMissionary = 16471,
+                LivingShadow = 16472,
+                Oblation = 25754,
+                SaltAndDarkness = 25755,
+                Shadowbringer = 25757,
+                ReleaseGrit = 32067,
+                Shadowstride = 36926,
+                ShadowedVigil = 36927,
+                ScarletDelirium = 36928,
+                Comeuppance = 36929,
+                Torcleaver = 36930,
+                Impalement = 36931,
+                Disesteem = 36932;
+        }
+
+        public static class Buffs
+        {
+            public const uint
+                Delirium = 3836,
+                BloodWeapon = 742,
+                Darkside = 751,
+                ShadowWall = 747,
+                LivingDead = 810,
+                Oblation = 2578,
+                SaltedEarth = 749,
+                Scorn = 3837;
+        }
+    }
+
+    #endregion
+
     #region 技能 / Buff ID
 
     public const uint Delirium            = 3836;   // 血乱 (fixed)

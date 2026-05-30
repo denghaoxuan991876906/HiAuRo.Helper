@@ -51,17 +51,39 @@ dotnet sln YourACR.slnx add Helper/HiAuRo.Helper/HiAuRo.Helper.csproj
 </ItemGroup>
 ```
 
-### 4. 直接使用
+### 4. 技能 / Buff ID 规范
+
+每个 Helper 提供两套 ID 常量，名称已通过 [xivapi-v2](https://xivapi-v2.xivcdn.com) 校验：
+
+| 嵌套类 | 说明 | 示例 |
+|--------|------|------|
+| `XXXHelper.CN.Skills` | 中文技能名 → Action ID | `WARHelper.CN.Skills.原初的解放` |
+| `XXXHelper.CN.Buffs` | 中文 Buff 名 → Status ID | `WARHelper.CN.Buffs.原初的解放` |
+| `XXXHelper.EN.Skills` | 英文技能名 → Action ID | `WARHelper.EN.Skills.InnerRelease` |
+| `XXXHelper.EN.Buffs` | 英文 Buff 名 → Status ID | `WARHelper.EN.Buffs.InnerRelease` |
+
+> **ACR 作者请统一使用 `CN` 或 `EN` 子类下的常量**，以保证 ID 来源可追溯、中英对照清晰。
+
+### 5. 直接使用
 
 ```csharp
 using HiAuRo.Helper;
 
-// 诗人：直线射击预备 + 当前歌曲
-if (BRDHelper.HasStraightShotReady && BRDHelper.CurrentSong == Song.WanderersMinuet)
+// ── 推荐：通过 CN/EN 子类引用 ID ──
+
+// 战士：原初的解放 buff 检测
+if (WARHelper.Has原初的解放)
     ...
 
-// 战士：原初的解放
-if (WARHelper.Has原初的解放)
+// 也可以用英文名（指向同一个 ID）
+if (HelperRuntime.HasStatus(WARHelper.EN.Buffs.InnerRelease))
+    ...
+
+// 技能 ID 同理
+float cd = WARHelper.获取技能剩余CD(WARHelper.CN.Skills.原初的解放);
+
+// 诗人：直线射击预备 + 当前歌曲
+if (BRDHelper.HasStraightShotReady && BRDHelper.CurrentSong == Song.WanderersMinuet)
     ...
 
 // 龙骑：龙威

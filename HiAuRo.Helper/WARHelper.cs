@@ -5,105 +5,173 @@ namespace HiAuRo.Helper;
 /// </summary>
 public class WARHelper
 {
+    #region CN — 中文名称
 
-    #region 技能 ID 常量
-
-    public static class Skills
+    public static class CN
     {
-        public const uint
-            牵制 = 7549,
-            真北 = 7546,
-            重劈 = 31,
-            凶残裂 = 37,
-            暴风斩 = 42,
-            暴风碎 = 45,
-            飞斧 = 46,
-            超压斧 = 41,
-            秘银旋风 = 16462,
-            原初之魂 = 49,
-            裂石飞环 = 3549,
-            钢铁旋风 = 51,
-            地毁人亡 = 3550,
-            狂魂 = 16465,
-            混沌旋风 = 16463,
-            尽毁 = 36925,
-            蛮荒崩裂 = 25753,
-            狂暴 = 38,
-            原初的解放 = 7389,
-            守护 = 48,
-            解除守护 = 32066,
-            战栗 = 40,
-            原初的直觉 = 3551,
-            原初的血气 = 25751,
-            原初的勇猛 = 16464,
-            复仇 = 44,
-            戮罪 = 36923,
-            死斗 = 43,
-            战嚎 = 52,
-            泰然自若 = 3552,
-            猛攻 = 7386,
-            动乱 = 7387,
-            摆脱 = 7388,
-            群山隆起 = 25752,
-            原初的怒震 = 36924,
-            铁壁 = 7531,
-            下踢 = 7540,
-            挑衅 = 7533,
-            插言 = 7538,
-            雪仇 = 7535,
-            退避 = 7537,
-            亲疏自行 = 7548,
-            内丹 = 7541,
-            浴血 = 7542,
-            醒梦 = 7562,
-            冲刺 = 3;
+        public static class Skills
+        {
+            public const uint
+                重劈 = 31,
+                凶残裂 = 37,
+                狂暴 = 38,
+                战栗 = 40,
+                超压斧 = 41,
+                暴风斩 = 42,
+                死斗 = 43,
+                复仇 = 44,
+                暴风碎 = 45,
+                飞斧 = 46,
+                守护 = 48,
+                原初之魂 = 49,
+                钢铁旋风 = 51,
+                战嚎 = 52,
+                裂石飞环 = 3549,
+                地毁人亡 = 3550,
+                原初的直觉 = 3551,
+                泰然自若 = 3552,
+                猛攻 = 7386,
+                动乱 = 7387,
+                摆脱 = 7388,
+                原初的解放 = 7389,
+                铁壁 = 7531,
+                挑衅 = 7533,
+                雪仇 = 7535,
+                退避 = 7537,
+                插言 = 7538,
+                下踢 = 7540,
+                亲疏自行 = 7548,
+                秘银暴风 = 16462,
+                混沌旋风 = 16463,
+                原初的勇猛 = 16464,
+                狂魂 = 16465,
+                原初的血气 = 25751,
+                群山隆起 = 25752,
+                蛮荒崩裂 = 25753,
+                解除守护 = 32066,
+                戮罪 = 36923,
+                原初的怒震 = 36924,
+                尽毁 = 36925;
+        }
+
+        public static class Buffs
+        {
+            public const uint
+                战场风暴 = 2677,
+                死斗 = 409,
+                原初的混沌 = 1897,
+                原初的解放 = 1177,
+                原初的觉悟 = 2663,
+                守护 = 91,
+                原初的搏动 = 3833,
+                尽毁预备 = 3834,
+                蛮荒崩裂预备 = 2624,
+                原初的怒震预备 = 3901,
+                亲疏自行 = 1209,
+                雪仇 = 1193,
+                原初的血气 = 2678,
+                原初的直觉 = 735,
+                复仇 = 89,
+                戮罪 = 3832,
+                战栗 = 87,
+                铁壁 = 1191,
+                亲疏自行减伤 = 1984;
+        }
     }
 
     #endregion
 
-    #region Buff ID 常量
+    #region EN — English Names (verified via XIVAPI v2)
 
-    public static class Buffs
+    public static class EN
     {
-        public const uint
-            红斩 = 2677,
-            死斗 = 409,
-            原初的混沌 = 1897,
-            原初的解放 = 1177,
-            原初的觉悟 = 2663,
-            守护 = 91,
-            原初的搏动 = 3833,
-            尽毁预备 = 3834,
-            蛮荒崩裂预备 = 2624,
-            原初的怒震预备 = 3901,
-            亲疏自行 = 1209,
-            雪仇 = 1193,
-            原初的血气 = 2678,
-            原初的直觉 = 735,
-            复仇 = 89,
-            戮罪 = 3832,
-            战栗 = 87,
-            铁壁 = 1191,
-            亲疏自行减伤 = 1984;
+        public static class Skills
+        {
+            public const uint
+                HeavySwing = 31,
+                Maim = 37,
+                Berserk = 38,
+                ThrillOfBattle = 40,
+                Overpower = 41,
+                StormsPath = 42,
+                Holmgang = 43,
+                Vengeance = 44,
+                StormsEye = 45,
+                Tomahawk = 46,
+                Defiance = 48,
+                InnerBeast = 49,
+                SteelCyclone = 51,
+                Infuriate = 52,
+                FellCleave = 3549,
+                Decimate = 3550,
+                RawIntuition = 3551,
+                Equilibrium = 3552,
+                Onslaught = 7386,
+                Upheaval = 7387,
+                ShakeItOff = 7388,
+                InnerRelease = 7389,
+                Rampart = 7531,
+                Provoke = 7533,
+                Reprisal = 7535,
+                Shirk = 7537,
+                Interject = 7538,
+                LowBlow = 7540,
+                ArmsLength = 7548,
+                MythrilTempest = 16462,
+                ChaoticCyclone = 16463,
+                NascentFlash = 16464,
+                InnerChaos = 16465,
+                Bloodwhetting = 25751,
+                Orogeny = 25752,
+                PrimalRend = 25753,
+                ReleaseDefiance = 32066,
+                Damnation = 36923,
+                PrimalWrath = 36924,
+                PrimalRuination = 36925;
+        }
+
+        public static class Buffs
+        {
+            public const uint
+                SurgingTempest = 2677,
+                Holmgang = 409,
+                NascentChaos = 1897,
+                InnerRelease = 1177,
+                InnerStrength = 2663,
+                Defiance = 91,
+                BurgeoningFury = 3833,
+                PrimalRuinationReady = 3834,
+                PrimalRendReady = 2624,
+                Wrathful = 3901,
+                ArmsLength = 1209,
+                Reprisal = 1193,
+                Bloodwhetting = 2678,
+                RawIntuition = 735,
+                Vengeance = 89,
+                Damnation = 3832,
+                ThrillOfBattle = 87,
+                Rampart = 1191,
+                ArmsLengthSlowResist = 1984;
+        }
     }
 
     #endregion
 
     #region 内部 Buff ID
 
-    public const uint _原初的解放 = 1177;
+    public const uint _原初的解放 = CN.Buffs.原初的解放;
     public const uint _狂暴 = 86;
-    public const uint _原初的混沌 = 1897;
-    public const uint _红斩 = 2677;
-    public const uint _战栗 = 87;
-    public const uint _复仇 = 89;
+    public const uint _原初的混沌 = CN.Buffs.原初的混沌;
+    public const uint _红斩 = CN.Buffs.战场风暴;
+    public const uint _战栗 = CN.Buffs.战栗;
+    public const uint _复仇 = CN.Buffs.复仇;
     public const uint _死斗 = 88;
-    public const uint _蛮荒崩裂预备 = 2624;
-    public const uint _尽毁预备 = 3834;
-    public const uint _原初的怒震预备 = 3901;
-    public const uint _原初的血气 = 2678;
-    public const uint _守护 = 91;
-    public const uint _原初的觉悟 = 2663;
+    public const uint _蛮荒崩裂预备 = CN.Buffs.蛮荒崩裂预备;
+    public const uint _尽毁预备 = CN.Buffs.尽毁预备;
+    public const uint _原初的怒震预备 = CN.Buffs.原初的怒震预备;
+    public const uint _原初的血气 = CN.Buffs.原初的血气;
+    public const uint _守护 = CN.Buffs.守护;
+    public const uint _原初的觉悟 = CN.Buffs.原初的觉悟;
 
     #endregion
 
@@ -152,8 +220,8 @@ public class WARHelper
 
     public static float 获取技能最大充能层数(uint spellId)
     {
-        if (spellId == Skills.猛攻) return HelperRuntime.GetCurrentLevel() >= 88 ? 3 : 2;
-        if (spellId == Skills.战嚎) return 2;
+        if (spellId == CN.Skills.猛攻) return HelperRuntime.GetCurrentLevel() >= 88 ? 3 : 2;
+        if (spellId == CN.Skills.战嚎) return 2;
         return 1;
     }
 
@@ -188,8 +256,8 @@ public class WARHelper
 
     public static int 获取解放层数()
     {
-        if (!HelperRuntime.HasStatus(Buffs.原初的解放)) return 0;
-        return Math.Max(1, HelperRuntime.GetAuraStackCount(Buffs.原初的解放));
+        if (!HelperRuntime.HasStatus(CN.Buffs.原初的解放)) return 0;
+        return Math.Max(1, HelperRuntime.GetAuraStackCount(CN.Buffs.原初的解放));
     }
 
     #endregion

@@ -7,6 +7,137 @@ namespace HiAuRo.Helper;
 public class BLMHelper
 {
 
+    #region CN — 中文名称 (verified via xivapi-v2.xivcdn.com)
+    public static class CN
+    {
+        public static class Skills
+        {
+            public const uint
+                火炎 = 141,
+                冰结 = 142,
+                闪雷 = 144,
+                烈炎 = 147,
+                星灵移位 = 149,
+                爆炎 = 152,
+                暴雷 = 153,
+                冰封 = 154,
+                以太步 = 155,
+                崩溃 = 156,
+                魔罩 = 157,
+                魔泉 = 158,
+                玄冰 = 159,
+                核爆 = 162,
+                黑魔纹 = 3573,
+                冰澈 = 3576,
+                炽炎 = 3577,
+                魔纹步 = 7419,
+                霹雷 = 7420,
+                三连咏唱 = 7421,
+                秽浊 = 7422,
+                震雷 = 7447,
+                沉稳咏唱 = 7559,
+                昏乱 = 7560,
+                即刻咏唱 = 7561,
+                醒梦 = 7562,
+                绝望 = 16505,
+                灵极魂 = 16506,
+                异言 = 16507,
+                冰冻 = 25793,
+                高烈炎 = 25794,
+                高冰冻 = 25795,
+                详述 = 25796,
+                悖论 = 25797,
+                催眠 = 25880,
+                高闪雷 = 36986,
+                高震雷 = 36987,
+                魔纹重置 = 36988,
+                耀星 = 36989;
+        }
+
+        public static class Buffs
+        {
+            public const uint 醒梦 = 1204,
+                              即刻咏唱 = 167,
+                              沉稳咏唱 = 160,
+                              魔罩 = 168,
+                              三连咏唱 = 1211,
+                              云砧 = 3870,
+                              火苗 = 165,
+                              黑魔纹 = 737,
+                              魔纹环 = 738,
+                              高闪雷 = 3871,
+                              高震雷 = 3872,
+                              暴雷 = 163,
+                              霹雷 = 1210;
+        }
+    }
+    #endregion
+    #region EN — English Names (verified via xivapi-v2.xivcdn.com)
+    public static class EN
+    {
+        public static class Skills
+        {
+            public const uint
+                Fire = 141,
+                Blizzard = 142,
+                Thunder = 144,
+                FireII = 147,
+                Transpose = 149,
+                FireIII = 152,
+                ThunderIII = 153,
+                BlizzardIII = 154,
+                AetherialManipulation = 155,
+                Scathe = 156,
+                Manaward = 157,
+                Manafont = 158,
+                Freeze = 159,
+                Flare = 162,
+                LeyLines = 3573,
+                BlizzardIV = 3576,
+                FireIV = 3577,
+                BetweenTheLines = 7419,
+                ThunderIV = 7420,
+                Triplecast = 7421,
+                Foul = 7422,
+                ThunderII = 7447,
+                Surecast = 7559,
+                Addle = 7560,
+                Swiftcast = 7561,
+                LucidDreaming = 7562,
+                Despair = 16505,
+                UmbralSoul = 16506,
+                Xenoglossy = 16507,
+                BlizzardII = 25793,
+                HighFireII = 25794,
+                HighBlizzardII = 25795,
+                Amplifier = 25796,
+                Paradox = 25797,
+                Sleep = 25880,
+                HighThunder = 36986,
+                HighThunderII = 36987,
+                Retrace = 36988,
+                FlareStar = 36989;
+        }
+
+        public static class Buffs
+        {
+            public const uint LucidDreaming = 1204,
+                              Swiftcast = 167,
+                              Surecast = 160,
+                              Manaward = 168,
+                              Triplecast = 1211,
+                              Thunderhead = 3870,
+                              Firestarter = 165,
+                              LeyLines = 737,
+                              CircleOfPower = 738,
+                              HighThunder = 3871,
+                              HighThunderII = 3872,
+                              ThunderIII = 163,
+                              ThunderIV = 1210;
+        }
+    }
+    #endregion
+
     #region 技能
 
     public const uint 冰结 = 142;

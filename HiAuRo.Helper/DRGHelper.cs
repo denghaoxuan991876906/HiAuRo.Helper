@@ -5,6 +5,130 @@ namespace HiAuRo.Helper;
 /// </summary>
 public class DRGHelper
 {
+    #region CN — 中文名称 (verified via xivapi-v2.xivcdn.com)
+    public static class CN
+    {
+        public static class Skills
+        {
+            public const uint
+                精准刺 = 75,
+                贯通刺 = 78,
+                龙剑 = 83,
+                直刺 = 84,
+                猛枪 = 85,
+                死天枪 = 86,
+                开膛枪 = 87,
+                樱花怒放 = 88,
+                贯穿尖 = 90,
+                跳跃 = 92,
+                回避跳跃 = 94,
+                龙炎冲 = 96,
+                龙牙龙爪 = 3554,
+                武神枪 = 3555,
+                龙尾大回旋 = 3556,
+                战斗连祷 = 3557,
+                音速刺 = 7397,
+                幻象冲 = 7399,
+                死者之岸 = 7400,
+                内丹 = 7541,
+                浴血 = 7542,
+                真北 = 7546,
+                亲疏自行 = 7548,
+                牵制 = 7549,
+                扫腿 = 7863,
+                山境酷刑 = 16477,
+                高跳 = 16478,
+                龙眼雷电 = 16479,
+                坠星冲 = 16480,
+                龙眼苍穹 = 25770,
+                苍穹刺 = 25771,
+                樱花缭乱 = 25772,
+                天龙点睛 = 25773,
+                龙翼滑翔 = 36951,
+                云蒸龙变 = 36952,
+                龙炎升 = 36953,
+                前冲刺 = 36954,
+                螺旋击 = 36955,
+                渡星冲 = 36956;
+        }
+        public static class Buffs
+        {
+            public const uint 龙剑 = 116;
+            public const uint 猛枪 = 1864;
+            public const uint 贯穿尖效果提高 = 1870;
+            public const uint 战斗连祷 = 786;
+            public const uint 龙枪 = 2720;
+            public const uint 樱花缭乱 = 2719;
+            public const uint 龙眼 = 1863;
+            public const uint 龙炎升预备 = 3845;
+            public const uint 死者之岸预备 = 3844;
+            public const uint 渡星冲预备 = 3846;
+            public const uint 幻象冲预备 = 1243;
+        }
+    }
+    #endregion
+    #region EN — English Names (verified via xivapi-v2.xivcdn.com)
+    public static class EN
+    {
+        public static class Skills
+        {
+            public const uint
+                TrueThrust = 75,
+                VorpalThrust = 78,
+                LifeSurge = 83,
+                FullThrust = 84,
+                LanceCharge = 85,
+                DoomSpike = 86,
+                Disembowel = 87,
+                ChaosThrust = 88,
+                PiercingTalon = 90,
+                Jump = 92,
+                ElusiveJump = 94,
+                DragonfireDive = 96,
+                FangAndClaw = 3554,
+                Geirskogul = 3555,
+                WheelingThrust = 3556,
+                BattleLitany = 3557,
+                SonicThrust = 7397,
+                MirageDive = 7399,
+                Nastrond = 7400,
+                SecondWind = 7541,
+                Bloodbath = 7542,
+                TrueNorth = 7546,
+                ArmsLength = 7548,
+                Feint = 7549,
+                LegSweep = 7863,
+                CoerthanTorment = 16477,
+                HighJump = 16478,
+                RaidenThrust = 16479,
+                Stardiver = 16480,
+                DraconianFury = 25770,
+                HeavensThrust = 25771,
+                ChaoticSpring = 25772,
+                WyrmwindThrust = 25773,
+                WingedGlide = 36951,
+                Drakesbane = 36952,
+                RiseOfTheDragon = 36953,
+                LanceBarrage = 36954,
+                SpiralBlow = 36955,
+                Starcross = 36956;
+        }
+        public static class Buffs
+        {
+            public const uint LifeSurge = 116;
+            public const uint LanceCharge = 1864;
+            public const uint EnhancedPiercingTalon = 1870;
+            public const uint BattleLitany = 786;
+            public const uint PowerSurge = 2720;
+            public const uint ChaoticSpring = 2719;
+            public const uint DraconianFire = 1863;
+            public const uint DragonsFlight = 3845;
+            public const uint NastrondReady = 3844;
+            public const uint StarcrossReady = 3846;
+            public const uint DiveReady = 1243;
+        }
+    }
+    #endregion
 
     public const uint LifeSurge = 116;          // 龙剑
     public const uint LanceCharge = 1864;       // 猛枪

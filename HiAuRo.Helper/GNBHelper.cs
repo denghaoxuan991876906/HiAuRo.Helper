@@ -7,6 +7,165 @@ namespace HiAuRo.Helper;
 public class GNBHelper
 {
 
+    #region CN — 中文名称 (verified via xivapi-v2.xivcdn.com)
+    public static class CN
+    {
+        public static class Skills
+        {
+            public const uint
+                利刃斩 = 16137,
+                无情 = 16138,
+                残暴弹 = 16139,
+                伪装 = 16140,
+                恶魔切 = 16141,
+                王室亲卫 = 16142,
+                闪雷弹 = 16143,
+                危险领域 = 16144,
+                迅连斩 = 16145,
+                烈牙 = 16146,
+                猛兽爪 = 16147,
+                星云 = 16148,
+                恶魔杀 = 16149,
+                凶禽爪 = 16150,
+                极光 = 16151,
+                超火流星 = 16152,
+                音速破 = 16153,
+                续剑 = 16155,
+                撕喉 = 16156,
+                裂膛 = 16157,
+                穿目 = 16158,
+                弓形冲波 = 16159,
+                光之心 = 16160,
+                石之心 = 16161,
+                爆发击 = 16162,
+                命运之环 = 16163,
+                血壤 = 16164,
+                爆破领域 = 16165,
+                铁壁 = 7531,
+                挑衅 = 7533,
+                雪仇 = 7535,
+                退避 = 7537,
+                插言 = 7538,
+                下踢 = 7540,
+                亲疏自行 = 7548,
+                刚玉之心 = 25758,
+                超高速 = 25759,
+                倍攻 = 25760,
+                解除王室亲卫 = 32068,
+                弹道 = 36934,
+                大星云 = 36935,
+                命运之印 = 36936,
+                崛起之心 = 36937,
+                支配之心 = 36938,
+                终结之心 = 36939;
+        }
+
+        public static class Buffs
+        {
+            public const uint 无情 = 1831,
+                              撕喉预备 = 1842,
+                              裂膛预备 = 1843,
+                              穿目预备 = 1844,
+                              刚玉之清 = 2684,
+                              超火流星 = 1836,
+                              残暴弹 = 1898,
+                              命运之印预备 = 3839,
+                              心有灵狮 = 3840,
+                              超高速 = 2686,
+                              王室亲卫 = 1833,
+                              音速破预备 = 3886,
+                              刚玉之心 = 2683,
+                              刚玉之净 = 2685,
+                              石之心 = 1840,
+                              星云 = 1834,
+                              大星云 = 3838,
+                              伪装 = 1832,
+                              极光 = 1835,
+                              光之心 = 1839,
+                              血壤 = 5051;
+        }
+    }
+    #endregion
+    #region EN — English Names (verified via xivapi-v2.xivcdn.com)
+    public static class EN
+    {
+        public static class Skills
+        {
+            public const uint
+                KeenEdge = 16137,
+                NoMercy = 16138,
+                BrutalShell = 16139,
+                Camouflage = 16140,
+                DemonSlice = 16141,
+                RoyalGuard = 16142,
+                LightningShot = 16143,
+                DangerZone = 16144,
+                SolidBarrel = 16145,
+                GnashingFang = 16146,
+                SavageClaw = 16147,
+                Nebula = 16148,
+                DemonSlaughter = 16149,
+                WickedTalon = 16150,
+                Aurora = 16151,
+                Superbolide = 16152,
+                SonicBreak = 16153,
+                Continuation = 16155,
+                JugularRip = 16156,
+                AbdomenTear = 16157,
+                EyeGouge = 16158,
+                BowShock = 16159,
+                HeartOfLight = 16160,
+                HeartOfStone = 16161,
+                BurstStrike = 16162,
+                FatedCircle = 16163,
+                Bloodfest = 16164,
+                BlastingZone = 16165,
+                Rampart = 7531,
+                Provoke = 7533,
+                Reprisal = 7535,
+                Shirk = 7537,
+                Interject = 7538,
+                LowBlow = 7540,
+                ArmsLength = 7548,
+                HeartOfCorundum = 25758,
+                Hypervelocity = 25759,
+                DoubleDown = 25760,
+                ReleaseRoyalGuard = 32068,
+                Trajectory = 36934,
+                GreatNebula = 36935,
+                FatedBrand = 36936,
+                ReignOfBeasts = 36937,
+                NobleBlood = 36938,
+                LionHeart = 36939;
+        }
+
+        public static class Buffs
+        {
+            public const uint NoMercy = 1831,
+                              ReadyToRip = 1842,
+                              ReadyToTear = 1843,
+                              ReadyToGouge = 1844,
+                              ClarityOfCorundum = 2684,
+                              Superbolide = 1836,
+                              BrutalShell = 1898,
+                              ReadyToRaze = 3839,
+                              ReadyToReign = 3840,
+                              ReadyToBlast = 2686,
+                              RoyalGuard = 1833,
+                              ReadyToBreak = 3886,
+                              HeartOfCorundum = 2683,
+                              CatharsisOfCorundum = 2685,
+                              HeartOfStone = 1840,
+                              Nebula = 1834,
+                              GreatNebula = 3838,
+                              Camouflage = 1832,
+                              Aurora = 1835,
+                              HeartOfLight = 1839,
+                              Bloodfest = 5051;
+        }
+    }
+    #endregion
+
     #region 技能 / Buff ID
 
     public const uint 无情           = 1831;   // 无情
@@ -28,6 +187,7 @@ public class GNBHelper
     public const uint 大星云 = 3838;//Great Nebula
     public const uint 伪装 = 1832;
     public const uint 极光 = 1835;
+    public const uint 光之心 = 1839; //
     #endregion
 
     /// <summary>绝枪战士职业量谱</summary>

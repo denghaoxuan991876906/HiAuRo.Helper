@@ -35,11 +35,17 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: gh pr comment $PR_NUMBER --body-file review_body.md
 
-      - name: 启用自动合并
-        if: ${{ steps.ai-review.outputs.verdict == 'APPROVE' }}
+      - name: 自动合并控制
+        if: ${{ steps.ai-review.outputs.verdict == 'APPROVE' || steps.ai-review.outputs.verdict == 'REJECT' }}
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          VERDICT: ${{ steps.ai-review.outputs.verdict }}
         run: |
-          echo "AI 审查通过，启用自动合并 PR #$PR_NUMBER"
-          gh pr merge "$PR_NUMBER" --auto --squash --delete-branch
+          if [ "$VERDICT" = "APPROVE" ]; then
+            echo "AI 审查通过，启用自动合并 PR #$PR_NUMBER"
+            gh pr merge "$PR_NUMBER" --auto --squash --delete-branch
+          else
+            echo "AI 审查未通过，禁用自动合并 PR #$PR_NUMBER"
+            gh pr merge "$PR_NUMBER" --disable-auto || true
+          fi
