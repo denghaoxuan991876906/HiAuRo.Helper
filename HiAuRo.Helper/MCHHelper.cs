@@ -41,11 +41,16 @@ public class MCHHelper
                 空气锚 = 16500,
                 后式自走人偶 = 16501,
                 超档后式人偶 = 16502,
+                打桩枪 = 16503,
+                铁臂拳 = 16504,
                 起爆 = 16766,
                 策动 = 16889,
                 亲疏自行 = 7548,
+                冲刺 = 3,
                 超荷 = 17209,
+                滚轮冲 = 17206,
                 霰弹枪 = 25786,
+                王室对撞机 = 25787,
                 回转飞锯 = 25788,
                 烈焰弹 = 36978,
                 双将 = 36979,
@@ -56,7 +61,9 @@ public class MCHHelper
         public static class Buffs
         {
             public const uint 野火 = 1946;
+            public const uint 目标野火 = 861;
             public const uint 整备 = 851;
+            public const uint 火焰喷射器 = 1205;
             public const uint 过热 = 2688;
             public const uint 掘地飞轮预备 = 3865;
             public const uint 超荷预备 = 3864;
@@ -104,11 +111,16 @@ public class MCHHelper
                 AirAnchor = 16500,
                 AutomatonQueen = 16501,
                 QueenOverdrive = 16502,
+                PileBunker = 16503,
+                ArmPunch = 16504,
                 Detonator = 16766,
                 Tactician = 16889,
                 ArmsLength = 7548,
+                Sprint = 3,
                 Hypercharge = 17209,
+                RollerDash = 17206,
                 Scattergun = 25786,
+                CrownedCollider = 25787,
                 ChainSaw = 25788,
                 BlazingShot = 36978,
                 DoubleCheck = 36979,
@@ -119,7 +131,9 @@ public class MCHHelper
         public static class Buffs
         {
             public const uint Wildfire = 1946;
+            public const uint WildfireOnTarget = 861;
             public const uint Reassembled = 851;
+            public const uint Flamethrower = 1205;
             public const uint Overheated = 2688;
             public const uint ExcavatorReady = 3865;
             public const uint Hypercharged = 3864;
@@ -170,9 +184,13 @@ public class MCHHelper
     public const uint 超档车式炮塔 = 7415;
     public const uint 后式自走人偶 = 16501;
     public const uint 超档后式人偶 = 16502;
+    public const uint 打桩枪 = 16503;
+    public const uint 铁臂拳 = 16504;
 
     public const uint 起爆 = 16766;
     public const uint 火焰喷射器 = 7418;
+    public const uint 滚轮冲 = 17206;
+    public const uint 王室对撞机 = 25787;
 
     public const uint 武装解除 = 2887;
     public const uint 策动 = 16889;
@@ -183,7 +201,9 @@ public class MCHHelper
 
     #region BUFF
     public const uint 野火buff = 1946;
+    public const uint 目标野火dot = 861;
     public const uint 整备buff = 851;
+    public const uint 火焰喷射器buff = 1205;
     public const uint 过热buff = 2688; 
     public const uint 掘地飞轮预备buff = 3865;
     public const uint 超荷预备 = 3864;
