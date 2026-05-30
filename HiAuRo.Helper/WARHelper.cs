@@ -73,6 +73,7 @@ public class WARHelper
                 原初的直觉 = 735,
                 复仇 = 89,
                 戮罪 = 3832,
+                狂暴 = 86,
                 战栗 = 87,
                 铁壁 = 1191,
                 亲疏自行减伤 = 1984;
@@ -149,6 +150,7 @@ public class WARHelper
                 RawIntuition = 735,
                 Vengeance = 89,
                 Damnation = 3832,
+                Berserk = 86,
                 ThrillOfBattle = 87,
                 Rampart = 1191,
                 ArmsLengthSlowResist = 1984;
@@ -157,47 +159,29 @@ public class WARHelper
 
     #endregion
 
-    #region 内部 Buff ID
-
-    public const uint _原初的解放 = CN.Buffs.原初的解放;
-    public const uint _狂暴 = 86;
-    public const uint _原初的混沌 = CN.Buffs.原初的混沌;
-    public const uint _红斩 = CN.Buffs.战场风暴;
-    public const uint _战栗 = CN.Buffs.战栗;
-    public const uint _复仇 = CN.Buffs.复仇;
-    public const uint _死斗 = 88;
-    public const uint _蛮荒崩裂预备 = CN.Buffs.蛮荒崩裂预备;
-    public const uint _尽毁预备 = CN.Buffs.尽毁预备;
-    public const uint _原初的怒震预备 = CN.Buffs.原初的怒震预备;
-    public const uint _原初的血气 = CN.Buffs.原初的血气;
-    public const uint _守护 = CN.Buffs.守护;
-    public const uint _原初的觉悟 = CN.Buffs.原初的觉悟;
-
-    #endregion
-
     #region 实例属性 — 状态查询
 
     public static WARGauge? Gauge => HelperRuntime.GetGauge<WARGauge>();
     public static byte BeastGauge => Gauge?.BeastGauge ?? 0;
 
-    public static bool HasInnerRelease => HelperRuntime.HasStatus(_原初的解放);
-    public static bool HasBerserk => HelperRuntime.HasStatus(_狂暴);
-    public static bool HasSurgingTempest => HelperRuntime.HasStatus(_红斩);
-    public static bool HasNascentChaos => HelperRuntime.HasStatus(_原初的混沌);
+    public static bool HasInnerRelease => HelperRuntime.HasStatus(CN.Buffs.原初的解放);
+    public static bool HasBerserk => HelperRuntime.HasStatus(CN.Buffs.狂暴);
+    public static bool HasSurgingTempest => HelperRuntime.HasStatus(CN.Buffs.战场风暴);
+    public static bool HasNascentChaos => HelperRuntime.HasStatus(CN.Buffs.原初的混沌);
 
-    public static bool Has红斩 => HelperRuntime.HasStatus(_红斩);
-    public static bool Has原初的解放 => HelperRuntime.HasStatus(_原初的解放);
-    public static bool Has狂暴 => HelperRuntime.HasStatus(_狂暴);
-    public static bool Has原初的混沌 => HelperRuntime.HasStatus(_原初的混沌);
-    public static bool Has原初的觉悟 => HelperRuntime.HasStatus(_原初的觉悟);
-    public static bool Has战栗 => HelperRuntime.HasStatus(_战栗);
-    public static bool Has复仇 => HelperRuntime.HasStatus(_复仇);
-    public static bool Has死斗 => HelperRuntime.HasStatus(_死斗);
-    public static bool Has蛮荒崩裂预备 => HelperRuntime.HasStatus(_蛮荒崩裂预备);
-    public static bool Has尽毁预备 => HelperRuntime.HasStatus(_尽毁预备);
-    public static bool Has原初的怒震预备 => HelperRuntime.HasStatus(_原初的怒震预备);
-    public static bool Has原初的血气 => HelperRuntime.HasStatus(_原初的血气);
-    public static bool Has守护 => HelperRuntime.HasStatus(_守护);
+    public static bool Has红斩 => HelperRuntime.HasStatus(CN.Buffs.战场风暴);
+    public static bool Has原初的解放 => HelperRuntime.HasStatus(CN.Buffs.原初的解放);
+    public static bool Has狂暴 => HelperRuntime.HasStatus(CN.Buffs.狂暴);
+    public static bool Has原初的混沌 => HelperRuntime.HasStatus(CN.Buffs.原初的混沌);
+    public static bool Has原初的觉悟 => HelperRuntime.HasStatus(CN.Buffs.原初的觉悟);
+    public static bool Has战栗 => HelperRuntime.HasStatus(CN.Buffs.战栗);
+    public static bool Has复仇 => HelperRuntime.HasStatus(CN.Buffs.复仇);
+    public static bool Has死斗 => HelperRuntime.HasStatus(CN.Buffs.死斗);
+    public static bool Has蛮荒崩裂预备 => HelperRuntime.HasStatus(CN.Buffs.蛮荒崩裂预备);
+    public static bool Has尽毁预备 => HelperRuntime.HasStatus(CN.Buffs.尽毁预备);
+    public static bool Has原初的怒震预备 => HelperRuntime.HasStatus(CN.Buffs.原初的怒震预备);
+    public static bool Has原初的血气 => HelperRuntime.HasStatus(CN.Buffs.原初的血气);
+    public static bool Has守护 => HelperRuntime.HasStatus(CN.Buffs.守护);
 
     #endregion
 
@@ -244,14 +228,14 @@ public class WARHelper
 
     public static float 获取爆发期剩余时间()
     {
-        return HelperRuntime.HasStatus(_原初的觉悟)
-            ? HelperRuntime.GetAuraTimeLeft(_原初的觉悟) : 0f;
+        return HelperRuntime.HasStatus(CN.Buffs.原初的觉悟)
+            ? HelperRuntime.GetAuraTimeLeft(CN.Buffs.原初的觉悟) : 0f;
     }
 
     public static float 获取红斩剩余时间()
     {
-        return HelperRuntime.HasStatus(_红斩)
-            ? HelperRuntime.GetAuraTimeLeft(_红斩) : 0f;
+        return HelperRuntime.HasStatus(CN.Buffs.战场风暴)
+            ? HelperRuntime.GetAuraTimeLeft(CN.Buffs.战场风暴) : 0f;
     }
 
     public static int 获取解放层数()
