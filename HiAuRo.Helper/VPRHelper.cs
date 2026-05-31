@@ -55,6 +55,9 @@ public class VPRHelper
                 飞蛇乱尾击 = 34645,
                 蛇行 = 34646,
                 蛇灵气 = 34647,
+                蛇尾术 = 35920,
+                双牙连术 = 35921,
+                双牙乱术 = 35922,
                 内丹 = 7541,
                 浴血 = 7542,
                 真北 = 7546,
@@ -65,11 +68,28 @@ public class VPRHelper
         public static class Buffs
         {
             public const uint
+                真北 = 1250,
+                侧击之毒 = 3645,
+                侧裂之毒 = 3646,
+                背击之毒 = 3647,
+                背裂之毒 = 3648,
+                阴惨猎毒 = 3649,
+                阴惨肤毒 = 3650,
+                猎毒 = 3657,
+                疾速肤毒 = 3658,
+                凶猎毒 = 3659,
+                凶肤毒 = 3660,
+                双牙连击预备 = 3665,
+                双牙乱击预备 = 3666,
+                夺命之毒 = 3667,
                 猎人直觉 = 3962,
                 疾速之牙 = 3963,
                 侧击预备 = 3964,
                 侧袭预备 = 3965,
-                强碎灵蛇附体 = 3967;
+                强碎灵蛇附体 = 3967,
+                祖灵预备 = 3671,
+                咬噬强化 = 3672,
+                穿裂强化 = 3772;
         }
     }
 
@@ -124,6 +144,9 @@ public class VPRHelper
                 UncoiledTwinblood = 34645,
                 Slither = 34646,
                 SerpentsIre = 34647,
+                SerpentsTail = 35920,
+                Twinfang = 35921,
+                Twinblood = 35922,
                 SecondWind = 7541,
                 Bloodbath = 7542,
                 TrueNorth = 7546,
@@ -134,11 +157,28 @@ public class VPRHelper
         public static class Buffs
         {
             public const uint
+                TrueNorth = 1250,
+                FlankstungVenom = 3645,
+                FlanksbaneVenom = 3646,
+                HindstungVenom = 3647,
+                HindsbaneVenom = 3648,
+                GrimhuntersVenom = 3649,
+                GrimskinsVenom = 3650,
+                HuntersVenom = 3657,
+                SwiftskinsVenom = 3658,
+                FellhuntersVenom = 3659,
+                FellskinsVenom = 3660,
+                PoisedForTwinfang = 3665,
+                PoisedForTwinblood = 3666,
+                NoxiousGnash = 3667,
                 HuntersInstinct = 3962,
                 Swiftscaled = 3963,
                 FlankstingReady = 3964,
                 FlanksbaneReady = 3965,
-                Reawakened = 3967;
+                Reawakened = 3967,
+                ReadyToReawaken = 3671,
+                HonedSteel = 3672,
+                HonedReavers = 3772;
         }
     }
 
@@ -149,6 +189,23 @@ public class VPRHelper
     public const uint FlankstingReady = 3964;   // 侧击预备
     public const uint FlanksbaneReady = 3965;   // 侧袭预备
     public const uint Reawakened = 3967;        // 强碎灵蛇 (附体buff)
+    public const uint TrueNorth = EN.Buffs.TrueNorth;
+    public const uint FlankstungVenom = EN.Buffs.FlankstungVenom;
+    public const uint FlanksbaneVenom = EN.Buffs.FlanksbaneVenom;
+    public const uint HindstungVenom = EN.Buffs.HindstungVenom;
+    public const uint HindsbaneVenom = EN.Buffs.HindsbaneVenom;
+    public const uint GrimhuntersVenom = EN.Buffs.GrimhuntersVenom;
+    public const uint GrimskinsVenom = EN.Buffs.GrimskinsVenom;
+    public const uint HuntersVenom = EN.Buffs.HuntersVenom;
+    public const uint SwiftskinsVenom = EN.Buffs.SwiftskinsVenom;
+    public const uint FellhuntersVenom = EN.Buffs.FellhuntersVenom;
+    public const uint FellskinsVenom = EN.Buffs.FellskinsVenom;
+    public const uint PoisedForTwinfang = EN.Buffs.PoisedForTwinfang;
+    public const uint PoisedForTwinblood = EN.Buffs.PoisedForTwinblood;
+    public const uint NoxiousGnash = EN.Buffs.NoxiousGnash;
+    public const uint ReadyToReawaken = EN.Buffs.ReadyToReawaken;
+    public const uint HonedSteel = EN.Buffs.HonedSteel;
+    public const uint HonedReavers = EN.Buffs.HonedReavers;
 
     /// <summary>蝰蛇剑士职业量谱</summary>
     public static VPRGauge? Gauge => HelperRuntime.GetGauge<VPRGauge>();
