@@ -185,22 +185,7 @@ public class WARHelper
 
     #endregion
 
-    #region 战斗运行时
-
-    public static float 获取Buff剩余时间(uint buffId)
-    {
-        return HelperRuntime.HasStatus(buffId)
-            ? HelperRuntime.GetAuraTimeLeft(buffId) : 0f;
-    }
-
-    public static int 获取Buff层数(uint buffId)
-    {
-        return HelperRuntime.HasStatus(buffId)
-            ? HelperRuntime.GetAuraStackCount(buffId) : 0;
-    }
-
-    public static float 获取技能充能层数(uint spellId) =>
-        HelperRuntime.GetCharges(spellId);
+    #region 战斗运行时（职业特化）
 
     public static float 获取技能最大充能层数(uint spellId)
     {
@@ -208,23 +193,6 @@ public class WARHelper
         if (spellId == CN.Skills.战嚎) return 2;
         return 1;
     }
-
-    public static float 获取技能剩余CD(uint spellId)
-    {
-        var actualId = HelperRuntime.GetActionChange(spellId);
-        return HelperRuntime.GetCooldownRemaining(actualId);
-    }
-
-    public static bool 技能CD快好了(uint spellId, float seconds)
-    {
-        var cd = 获取技能剩余CD(spellId);
-        return cd > 0 && cd < seconds * 1000;
-    }
-
-    public static uint 获取上一个GCD技能ID() => HelperRuntime.GetLastComboSpellId();
-    public static int 获取GCD剩余时间() => HelperRuntime.GetGCDCooldown();
-    public static bool 技能最近是否使用过(uint spellId, int ms) =>
-        HelperRuntime.RecentlyUsedSpell(spellId, ms);
 
     public static float 获取爆发期剩余时间()
     {
@@ -246,70 +214,4 @@ public class WARHelper
 
     #endregion
 
-    #region 目标与战斗环境
-
-    public static bool 目标是否无敌()
-    {
-        return HelperRuntime.IsCurrentTargetInvincible();
-    }
-
-    public static int 获取周围敌人数量(float range = 10f) =>
-        HelperRuntime.GetNearbyEnemyCount(range);
-
-    public static bool 是否在战斗中() => HelperRuntime.IsInCombat();
-    public static bool 是否在移动中() => HelperRuntime.IsMoving();
-
-    public static float 获取血量百分比() => HelperRuntime.GetHPPercent();
-
-    public static bool 是否在拉怪中(bool 启用自动拉怪, bool 启用拉怪中检测, float 搜索范围, int 敌人数阈值)
-    {
-        if (!启用自动拉怪 || !启用拉怪中检测) return false;
-        return 是否在移动中() && 获取周围敌人数量(搜索范围) >= 敌人数阈值;
-    }
-
-    public static int 获取血量最低成员索引()
-    {
-        int count = HelperRuntime.GetPartyCount();
-        if (count <= 1) return -1;
-
-        int lowestIdx = -1;
-        float lowestHp = float.MaxValue;
-
-        for (int i = 1; i < count; i++)
-        {
-            if (!HelperRuntime.IsPartyMemberAlive(i)) continue;
-            float hp = HelperRuntime.GetPartyMemberHP(i);
-            if (hp < lowestHp)
-            {
-                lowestHp = hp;
-                lowestIdx = i;
-            }
-        }
-
-        return lowestIdx;
-    }
-
-    public static int 获取血量百分比最低成员索引()
-    {
-        int count = HelperRuntime.GetPartyCount();
-        if (count <= 1) return -1;
-
-        int lowestIdx = -1;
-        float lowestPct = float.MaxValue;
-
-        for (int i = 1; i < count; i++)
-        {
-            if (!HelperRuntime.IsPartyMemberAlive(i)) continue;
-            float pct = HelperRuntime.GetPartyMemberHPPercent(i);
-            if (pct < lowestPct)
-            {
-                lowestPct = pct;
-                lowestIdx = i;
-            }
-        }
-
-        return lowestIdx;
-    }
-
-    #endregion
 }
