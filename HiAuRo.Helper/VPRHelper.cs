@@ -82,11 +82,9 @@ public class VPRHelper
                 双牙连击预备 = 3665,
                 双牙乱击预备 = 3666,
                 夺命之毒 = 3667,
-                猎人直觉 = 3962,
-                疾速之牙 = 3963,
-                侧击预备 = 3964,
-                侧袭预备 = 3965,
-                强碎灵蛇附体 = 3967,
+                猎人直觉 = 3668,
+                疾速之牙 = 3669,
+                祖灵附体 = 3670,
                 祖灵预备 = 3671,
                 咬噬强化 = 3672,
                 穿裂强化 = 3772;
@@ -171,11 +169,9 @@ public class VPRHelper
                 PoisedForTwinfang = 3665,
                 PoisedForTwinblood = 3666,
                 NoxiousGnash = 3667,
-                HuntersInstinct = 3962,
-                Swiftscaled = 3963,
-                FlankstingReady = 3964,
-                FlanksbaneReady = 3965,
-                Reawakened = 3967,
+                HuntersInstinct = 3668,
+                Swiftscaled = 3669,
+                Reawakened = 3670,
                 ReadyToReawaken = 3671,
                 HonedSteel = 3672,
                 HonedReavers = 3772;
@@ -184,28 +180,28 @@ public class VPRHelper
 
     #endregion
 
-    public const uint HuntersInstinct = 3962;   // 猎人直觉 (增伤buff)
-    public const uint Swiftscaled = 3963;       // 疾速之牙 (加速buff)
-    public const uint FlankstingReady = 3964;   // 侧击预备
-    public const uint FlanksbaneReady = 3965;   // 侧袭预备
-    public const uint Reawakened = 3967;        // 强碎灵蛇 (附体buff)
-    public const uint TrueNorth = EN.Buffs.TrueNorth;
-    public const uint FlankstungVenom = EN.Buffs.FlankstungVenom;
-    public const uint FlanksbaneVenom = EN.Buffs.FlanksbaneVenom;
-    public const uint HindstungVenom = EN.Buffs.HindstungVenom;
-    public const uint HindsbaneVenom = EN.Buffs.HindsbaneVenom;
-    public const uint GrimhuntersVenom = EN.Buffs.GrimhuntersVenom;
-    public const uint GrimskinsVenom = EN.Buffs.GrimskinsVenom;
-    public const uint HuntersVenom = EN.Buffs.HuntersVenom;
-    public const uint SwiftskinsVenom = EN.Buffs.SwiftskinsVenom;
-    public const uint FellhuntersVenom = EN.Buffs.FellhuntersVenom;
-    public const uint FellskinsVenom = EN.Buffs.FellskinsVenom;
-    public const uint PoisedForTwinfang = EN.Buffs.PoisedForTwinfang;
-    public const uint PoisedForTwinblood = EN.Buffs.PoisedForTwinblood;
-    public const uint NoxiousGnash = EN.Buffs.NoxiousGnash;
-    public const uint ReadyToReawaken = EN.Buffs.ReadyToReawaken;
-    public const uint HonedSteel = EN.Buffs.HonedSteel;
-    public const uint HonedReavers = EN.Buffs.HonedReavers;
+    public const uint HuntersInstinct = 3668;   // 猎人直觉 (增伤buff)
+    public const uint Swiftscaled = 3669;       // 疾速之牙 (加速buff)
+    public const uint FlankstingReady = 3645;   // 侧击强化毒
+    public const uint FlanksbaneReady = 3646;   // 侧裂强化毒
+    public const uint Reawakened = 3670;        // 祖灵附体
+    public const uint TrueNorth = 1250;         // 真北
+    public const uint FlankstungVenom = 3645;   // 侧击之毒
+    public const uint FlanksbaneVenom = 3646;   // 侧裂之毒
+    public const uint HindstungVenom = 3647;    // 背击之毒
+    public const uint HindsbaneVenom = 3648;    // 背裂之毒
+    public const uint GrimhuntersVenom = 3649;  // 阴惨猎毒
+    public const uint GrimskinsVenom = 3650;    // 阴惨肤毒
+    public const uint HuntersVenom = 3657;      // 猎毒
+    public const uint SwiftskinsVenom = 3658;   // 疾速肤毒
+    public const uint FellhuntersVenom = 3659;  // 凶猎毒
+    public const uint FellskinsVenom = 3660;    // 凶肤毒
+    public const uint PoisedForTwinfang = 3665;  // 双牙连击预备
+    public const uint PoisedForTwinblood = 3666; // 双牙乱击预备
+    public const uint NoxiousGnash = 3667;      // 夺命之毒
+    public const uint ReadyToReawaken = 3671;   // 祖灵预备
+    public const uint HonedSteel = 3672;        // 咬噬强化
+    public const uint HonedReavers = 3772;      // 穿裂强化
 
     /// <summary>蝰蛇剑士职业量谱</summary>
     public static VPRGauge? Gauge => HelperRuntime.GetGauge<VPRGauge>();
@@ -216,12 +212,12 @@ public class VPRHelper
     /// <summary>疾速之牙是否激活</summary>
     public static bool HasSwiftscaled => HelperRuntime.HasStatus(Swiftscaled);
 
-    /// <summary>强碎灵蛇附体是否激活</summary>
+    /// <summary>祖灵附体是否激活</summary>
     public static bool HasReawakened => HelperRuntime.HasStatus(Reawakened);
 
-    /// <summary>侧击预备是否激活</summary>
+    /// <summary>侧击强化毒是否激活</summary>
     public static bool HasFlankstingReady => HelperRuntime.HasStatus(FlankstingReady);
 
-    /// <summary>侧袭预备是否激活</summary>
+    /// <summary>侧裂强化毒是否激活</summary>
     public static bool HasFlanksbaneReady => HelperRuntime.HasStatus(FlanksbaneReady);
 }
