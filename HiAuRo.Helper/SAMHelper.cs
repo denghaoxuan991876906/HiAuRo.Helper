@@ -103,6 +103,7 @@ public class SAMHelper
                 Meditate = 7497,
                 ThirdEye = 7498,
                 MeikyoShisui = 7499,
+                Sprint = 3,
                 SecondWind = 7541,
                 Bloodbath = 7542,
                 TrueNorth = 7546,
@@ -131,9 +132,20 @@ public class SAMHelper
         {
             public const uint
                 MeikyoShisui = 1233,
+                EnhancedEnpi = 1236,
                 Higanbana = 1228,
                 Fugetsu = 1298,
                 Fuka = 1299,
+                Feint = 1195,
+                TrueNorth = 1250,
+                OgiNamikiriReadyStatus = 2959,
+                TsubameGaeshiReadyStatus = 3852,
+                ZanshinReady = 3855,
+                Tendo = 3856,
+                TendoSetsugekkaReady = 4216,
+                TendoKaeshiSetsugekkaReady = 4218,
+                TendoGokenReady = 3852,
+                TendoKaeshiGokenReady = 4217,
                 TheArrow = 1884,
                 Bleeding = 2951,
                 Embolden = 1239;
@@ -149,6 +161,17 @@ public class SAMHelper
     public const uint Ikishoten = 1884;         // 意气冲天
     public const uint OgiNamikiriReady = 2951;  // 奥义斩浪预备
     public const uint TsubameGaeshiReady = 1239; // 燕飞 (回返彼岸花预备)
+    public const uint EnhancedEnpi = 1236;      // 强化燕飞
+    public const uint Feint = 1195;             // 牵制
+    public const uint TrueNorth = 1250;         // 真北
+    public const uint OgiNamikiriReadyStatus = 2959; // 奥义斩浪预备
+    public const uint TsubameGaeshiReadyStatus = 3852; // 燕回返预备
+    public const uint ZanshinReady = 3855;      // 残心预备
+    public const uint Tendo = 3856;             // 天道
+    public const uint TendoSetsugekkaReady = 4216; // 天道雪月花预备
+    public const uint TendoKaeshiSetsugekkaReady = 4218; // 天道回返雪月花预备
+    public const uint TendoGokenReady = 3852;   // 天道五剑预备
+    public const uint TendoKaeshiGokenReady = 4217; // 天道回返五剑预备
 
     /// <summary>武士职业量谱</summary>
     public static SAMGauge? Gauge => HelperRuntime.GetGauge<SAMGauge>();
@@ -191,4 +214,26 @@ public class SAMHelper
 
     /// <summary>是否拥有全部三闪 (雪/月/花)</summary>
     public static bool HasAllThreeSen => HasSetsu && HasGetsu && HasKa;
+
+    public static bool HasEnhancedEnpi => HelperRuntime.HasStatus(EnhancedEnpi);
+
+    public static bool HasFeintOnTarget => HelperRuntime.HasStatusOnTarget(Feint);
+
+    public static bool HasTrueNorth => HelperRuntime.HasStatus(TrueNorth);
+
+    public static bool HasOgiNamikiriReadyStatus => HelperRuntime.HasStatus(OgiNamikiriReadyStatus);
+
+    public static bool HasTsubameGaeshiReadyStatus => HelperRuntime.HasStatus(TsubameGaeshiReadyStatus);
+
+    public static bool HasZanshinReady => HelperRuntime.HasStatus(ZanshinReady);
+
+    public static bool HasTendo => HelperRuntime.HasStatus(Tendo);
+
+    public static bool HasTendoSetsugekkaReady => HelperRuntime.HasStatus(TendoSetsugekkaReady);
+
+    public static bool HasTendoKaeshiSetsugekkaReady => HelperRuntime.HasStatus(TendoKaeshiSetsugekkaReady);
+
+    public static bool HasTendoGokenReady => HelperRuntime.HasStatus(TendoGokenReady);
+
+    public static bool HasTendoKaeshiGokenReady => HelperRuntime.HasStatus(TendoKaeshiGokenReady);
 }
