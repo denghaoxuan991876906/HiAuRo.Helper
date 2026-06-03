@@ -144,7 +144,6 @@ public class SAMHelper
                 Tendo = 3856,
                 TendoSetsugekkaReady = 4216,
                 TendoKaeshiSetsugekkaReady = 4218,
-                TendoGokenReady = 3852,
                 TendoKaeshiGokenReady = 4217,
                 TheArrow = 1884,
                 Bleeding = 2951,
@@ -170,7 +169,6 @@ public class SAMHelper
     public const uint Tendo = 3856;             // 天道
     public const uint TendoSetsugekkaReady = 4216; // 天道雪月花预备
     public const uint TendoKaeshiSetsugekkaReady = 4218; // 天道回返雪月花预备
-    public const uint TendoGokenReady = 3852;   // 天道五剑预备
     public const uint TendoKaeshiGokenReady = 4217; // 天道回返五剑预备
 
     /// <summary>武士职业量谱</summary>
@@ -232,8 +230,6 @@ public class SAMHelper
     public static bool HasTendoSetsugekkaReady => HelperRuntime.HasStatus(TendoSetsugekkaReady);
 
     public static bool HasTendoKaeshiSetsugekkaReady => HelperRuntime.HasStatus(TendoKaeshiSetsugekkaReady);
-
-    public static bool HasTendoGokenReady => HelperRuntime.HasStatus(TendoGokenReady);
 
     public static bool HasTendoKaeshiGokenReady => HelperRuntime.HasStatus(TendoKaeshiGokenReady);
 }
