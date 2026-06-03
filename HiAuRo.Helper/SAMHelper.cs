@@ -158,8 +158,8 @@ public class SAMHelper
     public const uint Jinpu = 1298;             // 阵风 (buff)
     public const uint Shifu = 1299;             // 士风 (buff)
     public const uint Ikishoten = 1884;         // 意气冲天
-    public const uint OgiNamikiriReady = 2951;  // 奥义斩浪预备
-    public const uint TsubameGaeshiReady = 1239; // 燕飞 (回返彼岸花预备)
+    public const uint OgiNamikiriReady = 2959;  // 奥义斩浪预备
+    public const uint TsubameGaeshiReady = 3852; // 燕回返预备
     public const uint EnhancedEnpi = 1236;      // 强化燕飞
     public const uint Feint = 1195;             // 牵制
     public const uint TrueNorth = 1250;         // 真北
