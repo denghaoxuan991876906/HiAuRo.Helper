@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HiAuRo.Sdk" Version="0.1.41">
+    <PackageReference Include="HiAuRo.Sdk" Version="0.2.11">
       <ExcludeAssets>runtime</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
