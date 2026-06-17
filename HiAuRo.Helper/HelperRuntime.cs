@@ -46,7 +46,7 @@ public static class HelperRuntime
         _ctx?.IsMoving() ?? false;
 
     public static bool IsInCombat() =>
-        _ctx?.IsInCombat() ?? false;
+        global::HiAuRo.Data.Combat.InCombat;
 
     public static int GetNearbyEnemyCount(float range) =>
         _ctx?.GetNearbyEnemyCount(range) ?? 0;
