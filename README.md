@@ -16,19 +16,9 @@ FFXIV 全战斗职业数据辅助库，基于 `HiAuRo.Sdk`，为 ACR 作者提�
 
 ## 构建
 
-Windows 环境：
-
-```bat
-dotnet build E:\DalamudPlugins\HiAuRo.Helper\HiAuRo.Helper.slnx -c Debug -nologo --source E:\DalamudPlugins\local-nuget-feed
-```
-
-WSL 环境通过 Windows `dotnet` 转发：
-
 ```bash
-cmd.exe /c "dotnet build E:\DalamudPlugins\HiAuRo.Helper\HiAuRo.Helper.slnx -c Debug -nologo --source E:\DalamudPlugins\local-nuget-feed"
+dotnet build HiAuRo.Helper.slnx -c Debug
 ```
-
-> 不再需要 `--recursive`，Helper 已无嵌套 submodule。
 
 ## ACR 作者：如何引用
 

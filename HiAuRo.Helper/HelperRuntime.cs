@@ -1,85 +1,164 @@
+using Dalamud.Game.ClientState.JobGauge;
+using HiAuRo.ACR;
+using OmenTools.Dalamud.Services.ObjectTable.Abstractions.ObjectKinds;
+
 namespace HiAuRo.Helper;
 
+/// <summary>
+/// Helper 运行时数据入口 —— 全部通过 HiAuRo.Sdk 暴露的 public API 原生访问，
+/// 不再依赖宿主反射注入的上下文。静态 API 开箱即用，无需 Initialize。
+/// </summary>
 public static class HelperRuntime
 {
-    private static IHelperContext? _ctx;
-
-    internal static void Initialize(IHelperContext context)
-    {
-        _ctx = context;
-    }
+    // ── Buff / 状态查询 ──
 
     public static bool HasStatus(uint statusId) =>
-        _ctx?.HasStatus(statusId) ?? false;
+        AuraHelper.HasSelfAura(statusId);
 
     public static bool HasStatusOnTarget(uint statusId) =>
-        _ctx?.HasStatusOnTarget(statusId) ?? false;
+        AuraHelper.HasTargetAura(statusId);
 
     public static float GetStatusTimeLeftOnTarget(uint statusId) =>
-        _ctx?.GetStatusTimeLeftOnTarget(statusId) ?? 0f;
+        AuraHelper.GetAuraTimeLeft(Data.Target.Current, statusId);
 
-    public static T? GetGauge<T>() where T : class =>
-        _ctx?.GetGauge<T>();
-
+    /// <summary>自身 buff 剩余时间（秒）</summary>
     public static float GetAuraTimeLeft(uint buffId) =>
-        _ctx?.GetAuraTimeLeft(buffId) ?? 0f;
+        AuraHelper.GetAuraTimeLeft(Data.Me.Object, buffId);
 
-    public static int GetAuraStackCount(uint buffId) =>
-        _ctx?.GetAuraStackCount(buffId) ?? 0;
+    /// <summary>自身 buff 层数</summary>
+    public static int GetAuraStackCount(uint buffId)
+    {
+        if (Data.Me.Object is not IBattleChara bc) return 0;
+        foreach (var s in bc.StatusList)
+        {
+            if (s.StatusID == buffId)
+                return s.Param > 0 ? s.Param : 1;
+        }
+        return 0;
+    }
 
+    /// <summary>职业量谱（通过 Dalamud JobGauges 原生获取）</summary>
+    public static T? GetGauge<T>() where T : JobGaugeBase =>
+        OmenTools.DService.Instance().JobGauges.Get<T>();
+
+    // ── CD 查询 ──
+
+    /// <summary>技能当前充能层数</summary>
     public static float GetCharges(uint spellId) =>
-        _ctx?.GetCharges(spellId) ?? 0f;
+        SpellHelper.GetCharges(spellId);
 
+    /// <summary>技能剩余冷却时间（毫秒）</summary>
     public static float GetCooldownRemaining(uint spellId) =>
-        _ctx?.GetCooldownRemaining(spellId) ?? 0f;
+        SpellHelper.GetCooldownRemaining(spellId);
 
+    // ── Combo / GCD ──
+
+    /// <summary>上一个 GCD 技能 ID（0 = 无连击）</summary>
     public static uint GetLastComboSpellId() =>
-        _ctx?.GetLastComboSpellId() ?? 0;
+        ComboHelper.LastComboSpellId;
 
+    /// <summary>GCD 剩余时间（毫秒）</summary>
     public static int GetGCDCooldown() =>
-        _ctx?.GetGCDCooldown() ?? 0;
+        (int)GCDHelper.GetGCDCooldown();
 
+    // ── 技能历史 ──
+
+    /// <summary>技能是否在最近 <paramref name="ms"/> 毫秒内使用过</summary>
     public static bool RecentlyUsedSpell(uint spellId, int ms) =>
-        _ctx?.RecentlyUsedSpell(spellId, ms) ?? false;
+        SpellHistoryHelper.RecentlyUsed(spellId, ms);
 
+    // ── 战斗状态 ──
+
+    /// <summary>是否移动中</summary>
     public static bool IsMoving() =>
-        _ctx?.IsMoving() ?? false;
+        Data.Me.IsMoving;
 
+    /// <summary>是否战斗中</summary>
     public static bool IsInCombat() =>
-        global::HiAuRo.Data.Combat.InCombat;
+        Data.Combat.InCombat;
 
-    public static int GetNearbyEnemyCount(float range) =>
-        _ctx?.GetNearbyEnemyCount(range) ?? 0;
+    /// <summary>周围 <paramref name="range"/> 码内敌人数量</summary>
+    public static int GetNearbyEnemyCount(float range)
+    {
+        if (Data.Me.Object == null) return 0;
+        var count = 0;
+        var enemies = Data.Objects.Enemies;
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (Data.Me.DistanceToObject2D(enemies[i]) <= range)
+                count++;
+        }
+        return count;
+    }
 
-    public static float GetHPPercent() =>
-        _ctx?.GetHPPercent() ?? 100f;
+    // ── 自身属性 ──
 
+    /// <summary>自身血量百分比（0-100）</summary>
+    public static float GetHPPercent()
+    {
+        if (Data.Me.Object is not IBattleChara bc || bc.MaxHp == 0) return 100f;
+        return (float)bc.CurrentHp / bc.MaxHp * 100f;
+    }
+
+    /// <summary>当前等级</summary>
     public static int GetCurrentLevel() =>
-        _ctx?.GetCurrentLevel() ?? 0;
+        Data.Me.CurrentLevel;
 
-    public static bool IsCurrentTargetInvincible() =>
-        _ctx?.IsCurrentTargetInvincible() ?? false;
+    // ── 目标 ──
 
+    /// <summary>当前目标是否无敌（无目标/已死/不可选中/带无敌 buff）</summary>
+    public static bool IsCurrentTargetInvincible()
+    {
+        var target = Data.Target.Current;
+        return target == null || target.IsDead == true || !target.IsTargetable
+            || AuraHelper.HasInvincibleBuffs(target);
+    }
+
+    /// <summary>当前目标周围 <paramref name="range"/> 码内敌人数量</summary>
     public static int GetEnemyCountNearTarget(float range) =>
-        _ctx?.GetEnemyCountNearTarget(range) ?? 0;
+        TargetHelper.GetNearbyEnemyCount(Data.Target.Current, range);
 
+    // ── 技能数据 ──
+
+    /// <summary>技能变身 ID（如无变身则返回原 ID）</summary>
     public static uint GetActionChange(uint spellId) =>
-        _ctx?.GetActionChange(spellId) ?? spellId;
+        SpellExtension.GetActionChange(spellId);
 
     // ── 队伍查询 ──
 
+    /// <summary>队伍人数（含自身，index 0 = 自身）</summary>
     public static int GetPartyCount() =>
-        _ctx?.GetPartyCount() ?? 0;
+        Data.Party.All.Count;
 
+    /// <summary>指定索引的队员是否存活</summary>
     public static bool IsPartyMemberAlive(int index) =>
-        _ctx?.IsPartyMemberAlive(index) ?? false;
+        GetPartyMember(index)?.IsAlive ?? false;
 
-    public static float GetPartyMemberHP(int index) =>
-        _ctx?.GetPartyMemberHP(index) ?? 0f;
+    /// <summary>指定索引的队员当前血量</summary>
+    public static float GetPartyMemberHP(int index)
+    {
+        if (GetPartyMember(index)?.Player is not IBattleChara bc) return 0f;
+        return bc.CurrentHp;
+    }
 
-    public static float GetPartyMemberMaxHP(int index) =>
-        _ctx?.GetPartyMemberMaxHP(index) ?? 0f;
+    /// <summary>指定索引的队员最大血量</summary>
+    public static float GetPartyMemberMaxHP(int index)
+    {
+        if (GetPartyMember(index)?.Player is not IBattleChara bc) return 0f;
+        return bc.MaxHp;
+    }
 
-    public static float GetPartyMemberHPPercent(int index) =>
-        _ctx?.GetPartyMemberHPPercent(index) ?? 0f;
+    /// <summary>指定索引的队员血量百分比（0.0-1.0）</summary>
+    public static float GetPartyMemberHPPercent(int index)
+    {
+        if (GetPartyMember(index)?.Player is not IBattleChara bc || bc.MaxHp == 0) return 0f;
+        return (float)bc.CurrentHp / bc.MaxHp;
+    }
+
+    private static Data.PartyMemberInfo? GetPartyMember(int index)
+    {
+        var all = Data.Party.All;
+        if ((uint)index >= (uint)all.Count) return null;
+        return all[index];
+    }
 }
