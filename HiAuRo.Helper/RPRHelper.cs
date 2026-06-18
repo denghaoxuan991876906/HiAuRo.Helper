@@ -137,7 +137,7 @@ public class RPRHelper
     public const uint Enshrouded = 2593;        // 夜游魂 (附体buff)
 
     /// <summary>钐镰客职业量谱</summary>
-    public static RPRGauge? Gauge => HelperRuntime.GetGauge<RPRGauge>();
+    public static RPRGauge? Gauge => GameHelper.GetGauge<RPRGauge>();
 
     /// <summary>魂量值</summary>
     public static byte SoulGauge => Gauge?.Soul ?? 0;
@@ -149,11 +149,11 @@ public class RPRHelper
     public static bool CanEnshroud => ShroudGauge >= 50;
 
     /// <summary>神秘环是否激活</summary>
-    public static bool HasArcaneCircle => HelperRuntime.HasStatus(ArcaneCircle);
+    public static bool HasArcaneCircle => GameHelper.HasStatus(ArcaneCircle);
 
     /// <summary>播魂种是否激活</summary>
-    public static bool HasSoulSow => HelperRuntime.HasStatus(SoulSow);
+    public static bool HasSoulSow => GameHelper.HasStatus(SoulSow);
 
     /// <summary>夜游魂附体是否激活</summary>
-    public static bool HasEnshrouded => HelperRuntime.HasStatus(Enshrouded);
+    public static bool HasEnshrouded => GameHelper.HasStatus(Enshrouded);
 }

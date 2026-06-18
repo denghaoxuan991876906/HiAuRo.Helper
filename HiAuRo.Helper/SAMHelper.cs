@@ -172,7 +172,7 @@ public class SAMHelper
     public const uint TendoKaeshiGokenReady = 4217; // 天道回返五剑预备
 
     /// <summary>武士职业量谱</summary>
-    public static SAMGauge? Gauge => HelperRuntime.GetGauge<SAMGauge>();
+    public static SAMGauge? Gauge => GameHelper.GetGauge<SAMGauge>();
 
     /// <summary>剑气值</summary>
     public static int Kenki => Gauge?.Kenki ?? 0;
@@ -190,46 +190,46 @@ public class SAMHelper
     public static bool HasKa => Gauge?.HasKa ?? false;
 
     /// <summary>明镜止水是否激活</summary>
-    public static bool HasMeikyoShisui => HelperRuntime.HasStatus(MeikyoShisui);
+    public static bool HasMeikyoShisui => GameHelper.HasStatus(MeikyoShisui);
 
     /// <summary>彼岸花DoT是否激活</summary>
-    public static bool HasHiganbana => HelperRuntime.HasStatus(Higanbana);
+    public static bool HasHiganbana => GameHelper.HasStatus(Higanbana);
 
     /// <summary>阵风是否激活</summary>
-    public static bool HasJinpu => HelperRuntime.HasStatus(Jinpu);
+    public static bool HasJinpu => GameHelper.HasStatus(Jinpu);
 
     /// <summary>士风是否激活</summary>
-    public static bool HasShifu => HelperRuntime.HasStatus(Shifu);
+    public static bool HasShifu => GameHelper.HasStatus(Shifu);
 
     /// <summary>意气冲天是否激活</summary>
-    public static bool HasIkishoten => HelperRuntime.HasStatus(Ikishoten);
+    public static bool HasIkishoten => GameHelper.HasStatus(Ikishoten);
 
     /// <summary>奥义斩浪预备是否激活</summary>
-    public static bool HasOgiNamikiriReady => HelperRuntime.HasStatus(OgiNamikiriReady);
+    public static bool HasOgiNamikiriReady => GameHelper.HasStatus(OgiNamikiriReady);
 
     /// <summary>回返彼岸花预备是否激活</summary>
-    public static bool HasTsubameGaeshiReady => HelperRuntime.HasStatus(TsubameGaeshiReady);
+    public static bool HasTsubameGaeshiReady => GameHelper.HasStatus(TsubameGaeshiReady);
 
     /// <summary>是否拥有全部三闪 (雪/月/花)</summary>
     public static bool HasAllThreeSen => HasSetsu && HasGetsu && HasKa;
 
-    public static bool HasEnhancedEnpi => HelperRuntime.HasStatus(EnhancedEnpi);
+    public static bool HasEnhancedEnpi => GameHelper.HasStatus(EnhancedEnpi);
 
-    public static bool HasFeintOnTarget => HelperRuntime.HasStatusOnTarget(Feint);
+    public static bool HasFeintOnTarget => GameHelper.HasStatusOnTarget(Feint);
 
-    public static bool HasTrueNorth => HelperRuntime.HasStatus(TrueNorth);
+    public static bool HasTrueNorth => GameHelper.HasStatus(TrueNorth);
 
-    public static bool HasOgiNamikiriReadyStatus => HelperRuntime.HasStatus(OgiNamikiriReadyStatus);
+    public static bool HasOgiNamikiriReadyStatus => GameHelper.HasStatus(OgiNamikiriReadyStatus);
 
-    public static bool HasTsubameGaeshiReadyStatus => HelperRuntime.HasStatus(TsubameGaeshiReadyStatus);
+    public static bool HasTsubameGaeshiReadyStatus => GameHelper.HasStatus(TsubameGaeshiReadyStatus);
 
-    public static bool HasZanshinReady => HelperRuntime.HasStatus(ZanshinReady);
+    public static bool HasZanshinReady => GameHelper.HasStatus(ZanshinReady);
 
-    public static bool HasTendo => HelperRuntime.HasStatus(Tendo);
+    public static bool HasTendo => GameHelper.HasStatus(Tendo);
 
-    public static bool HasTendoSetsugekkaReady => HelperRuntime.HasStatus(TendoSetsugekkaReady);
+    public static bool HasTendoSetsugekkaReady => GameHelper.HasStatus(TendoSetsugekkaReady);
 
-    public static bool HasTendoKaeshiSetsugekkaReady => HelperRuntime.HasStatus(TendoKaeshiSetsugekkaReady);
+    public static bool HasTendoKaeshiSetsugekkaReady => GameHelper.HasStatus(TendoKaeshiSetsugekkaReady);
 
-    public static bool HasTendoKaeshiGokenReady => HelperRuntime.HasStatus(TendoKaeshiGokenReady);
+    public static bool HasTendoKaeshiGokenReady => GameHelper.HasStatus(TendoKaeshiGokenReady);
 }

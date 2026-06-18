@@ -219,7 +219,7 @@ public class ASTHelper
 
     #region 量谱 / 卡牌
 
-    public static ASTGauge? 占星量谱 => HelperRuntime.GetGauge<ASTGauge>();
+    public static ASTGauge? 占星量谱 => GameHelper.GetGauge<ASTGauge>();
     public static CardType[] 已抽卡牌 => 占星量谱?.DrawnCards.ToArray() ?? [CardType.None, CardType.None, CardType.None];
     public static CardType 小奥秘卡 => 占星量谱?.DrawnCrownCard ?? CardType.None;
     public static DrawType? 当前抽卡类型 => 占星量谱?.ActiveDraw;
@@ -234,9 +234,9 @@ public class ASTHelper
 
     #region 状态判断
 
-    public static bool 占卜是否激活 => HelperRuntime.HasStatus(CN.Buffs.占卜);
-    public static bool 光速是否激活 => HelperRuntime.HasStatus(CN.Buffs.光速);
-    public static bool 中间学派是否激活 => HelperRuntime.HasStatus(CN.Buffs.中间学派);
+    public static bool 占卜是否激活 => GameHelper.HasStatus(CN.Buffs.占卜);
+    public static bool 光速是否激活 => GameHelper.HasStatus(CN.Buffs.光速);
+    public static bool 中间学派是否激活 => GameHelper.HasStatus(CN.Buffs.中间学派);
 
     #endregion
 
@@ -246,7 +246,7 @@ public class ASTHelper
     {
         DrawType.Umbral => CN.Skills.灵极抽卡,
         DrawType.Astral => CN.Skills.星极抽卡,
-        _ => HelperRuntime.GetActionChange(CN.Skills.星极抽卡)
+        _ => GameHelper.GetActionChange(CN.Skills.星极抽卡)
     };
 
     public static uint 获取出卡技能(int slotIndex) => 获取卡牌(slotIndex) switch
@@ -259,16 +259,16 @@ public class ASTHelper
         CardType.Ewer => CN.Skills.河流神之瓶,
         _ => slotIndex switch
         {
-            0 => HelperRuntime.GetActionChange(CN.Skills.出卡I),
-            1 => HelperRuntime.GetActionChange(CN.Skills.出卡II),
-            2 => HelperRuntime.GetActionChange(CN.Skills.出卡III),
+            0 => GameHelper.GetActionChange(CN.Skills.出卡I),
+            1 => GameHelper.GetActionChange(CN.Skills.出卡II),
+            2 => GameHelper.GetActionChange(CN.Skills.出卡III),
             _ => 0
         }
     };
 
     public static uint 获取等级变化的技能(uint 技能ID) => 技能ID switch
     {
-        CN.Skills.落陷凶星 or CN.Skills.煞星 or CN.Skills.祸星 or CN.Skills.灾星 or CN.Skills.凶星 => HelperRuntime.GetCurrentLevel() switch
+        CN.Skills.落陷凶星 or CN.Skills.煞星 or CN.Skills.祸星 or CN.Skills.灾星 or CN.Skills.凶星 => GameHelper.GetCurrentLevel() switch
         {
             >= 82 => CN.Skills.落陷凶星,
             >= 72 => CN.Skills.煞星,
@@ -276,15 +276,15 @@ public class ASTHelper
             >= 54 => CN.Skills.灾星,
             _ => CN.Skills.凶星
         },
-        CN.Skills.焚灼 or CN.Skills.炽灼 or CN.Skills.烧灼 => HelperRuntime.GetCurrentLevel() switch
+        CN.Skills.焚灼 or CN.Skills.炽灼 or CN.Skills.烧灼 => GameHelper.GetCurrentLevel() switch
         {
             >= 72 => CN.Skills.焚灼,
             >= 46 => CN.Skills.炽灼,
             _ => CN.Skills.烧灼
         },
-        CN.Skills.中重力 or CN.Skills.重力 => HelperRuntime.GetCurrentLevel() >= 82 ? CN.Skills.中重力 : CN.Skills.重力,
-        CN.Skills.阳星合相 or CN.Skills.阳星相位 => HelperRuntime.GetCurrentLevel() >= 96 ? CN.Skills.阳星合相 : CN.Skills.阳星相位,
-        CN.Skills.福星 => HelperRuntime.GetCurrentLevel() >= 26 ? CN.Skills.福星 : CN.Skills.吉星,
+        CN.Skills.中重力 or CN.Skills.重力 => GameHelper.GetCurrentLevel() >= 82 ? CN.Skills.中重力 : CN.Skills.重力,
+        CN.Skills.阳星合相 or CN.Skills.阳星相位 => GameHelper.GetCurrentLevel() >= 96 ? CN.Skills.阳星合相 : CN.Skills.阳星相位,
+        CN.Skills.福星 => GameHelper.GetCurrentLevel() >= 26 ? CN.Skills.福星 : CN.Skills.吉星,
         _ => 技能ID
     };
 

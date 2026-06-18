@@ -151,7 +151,7 @@ public class BRDHelper
     #endregion
 
     /// <summary>诗人职业量谱</summary>
-    public static BRDGauge? Gauge => HelperRuntime.GetGauge<BRDGauge>();
+    public static BRDGauge? Gauge => GameHelper.GetGauge<BRDGauge>();
 
     /// <summary>当前歌曲类型</summary>
     public static Song CurrentSong => Gauge?.Song ?? Song.None;
@@ -170,27 +170,27 @@ public class BRDHelper
 
     /// <summary>直线射击预备是否激活</summary>
     public static bool HasStraightShotReady =>
-        HelperRuntime.HasStatus(StraightShotReady);
+        GameHelper.HasStatus(StraightShotReady);
 
     /// <summary>猛者强击是否激活</summary>
     public static bool HasRagingStrikes =>
-        HelperRuntime.HasStatus(RagingStrikes);
+        GameHelper.HasStatus(RagingStrikes);
 
     /// <summary>战斗之声是否激活</summary>
     public static bool HasBattleVoice =>
-        HelperRuntime.HasStatus(BattleVoice);
+        GameHelper.HasStatus(BattleVoice);
 
     /// <summary>光明神的最终乐章是否激活</summary>
     public static bool HasRadiantFinale =>
-        HelperRuntime.HasStatus(RadiantFinale);
+        GameHelper.HasStatus(RadiantFinale);
 
     /// <summary>纷乱箭是否激活</summary>
     public static bool HasBarrage =>
-        HelperRuntime.HasStatus(Barrage);
+        GameHelper.HasStatus(Barrage);
 
     /// <summary>鹰眼是否激活</summary>
     public static bool HasHawkEye =>
-        HelperRuntime.HasStatus(HawkEye);
+        GameHelper.HasStatus(HawkEye);
 
     /// <summary>目标上风蚀 DoT 是否激活</summary>
     public static bool HasStormbiteOnTarget =>
@@ -200,5 +200,5 @@ public class BRDHelper
     public static bool HasCausticBiteOnTarget =>
         HasDotOnTarget(CausticBiteDot);
 
-    private static bool HasDotOnTarget(uint statusId) => HelperRuntime.HasStatusOnTarget(statusId);
+    private static bool HasDotOnTarget(uint statusId) => GameHelper.HasStatusOnTarget(statusId);
 }

@@ -104,14 +104,14 @@ public class PCTHelper
     #endregion
 
     /// <summary>绘灵法师职业量谱</summary>
-    public static PCTGauge? Gauge => HelperRuntime.GetGauge<PCTGauge>();
+    public static PCTGauge? Gauge => GameHelper.GetGauge<PCTGauge>();
 
     /// <summary>画布是否可用</summary>
     public static bool IsCanvasReady => (Gauge?.PalleteGauge ?? 0) > 0;
 
     /// <summary>星空构想是否激活</summary>
-    public static bool HasStarryMuse => HelperRuntime.HasStatus(StarryMuse);
+    public static bool HasStarryMuse => GameHelper.HasStatus(StarryMuse);
 
     /// <summary>减色混合是否激活</summary>
-    public static bool HasSubtractivePalette => HelperRuntime.HasStatus(SubtractivePalette);
+    public static bool HasSubtractivePalette => GameHelper.HasStatus(SubtractivePalette);
 }

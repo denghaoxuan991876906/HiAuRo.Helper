@@ -138,25 +138,25 @@ public class DRGHelper
     public const uint GeirskogulReady = 2719;   // 龙眼 (武神枪预备)
 
     /// <summary>龙骑士职业量谱</summary>
-    public static DRGGauge? Gauge => HelperRuntime.GetGauge<DRGGauge>();
+    public static DRGGauge? Gauge => GameHelper.GetGauge<DRGGauge>();
 
     /// <summary>猛枪是否激活</summary>
-    public static bool HasLanceCharge => HelperRuntime.HasStatus(LanceCharge);
+    public static bool HasLanceCharge => GameHelper.HasStatus(LanceCharge);
 
     /// <summary>巨龙视线是否激活</summary>
-    public static bool HasDragonSight => HelperRuntime.HasStatus(DragonSight);
+    public static bool HasDragonSight => GameHelper.HasStatus(DragonSight);
 
     /// <summary>龙剑是否激活</summary>
-    public static bool HasLifeSurge => HelperRuntime.HasStatus(LifeSurge);
+    public static bool HasLifeSurge => GameHelper.HasStatus(LifeSurge);
 
     /// <summary>战斗连祷是否激活</summary>
-    public static bool HasBattleLitany => HelperRuntime.HasStatus(BattleLitany);
+    public static bool HasBattleLitany => GameHelper.HasStatus(BattleLitany);
 
     /// <summary>龙威是否激活</summary>
-    public static bool HasPowerSurge => HelperRuntime.HasStatus(PowerSurge);
+    public static bool HasPowerSurge => GameHelper.HasStatus(PowerSurge);
 
     /// <summary>武神枪预备是否激活</summary>
-    public static bool HasGeirskogulReady => HelperRuntime.HasStatus(GeirskogulReady);
+    public static bool HasGeirskogulReady => GameHelper.HasStatus(GeirskogulReady);
 
     #region 技能
 
@@ -204,17 +204,17 @@ public class DRGHelper
     public static bool 猛枪激活 => HasLanceCharge;
     public static bool 连祷激活 => HasBattleLitany;
     public static bool 龙剑激活 => HasLifeSurge;
-    public static bool 龙眼预备 => HelperRuntime.HasStatus(1863);
-    public static bool 龙炎升预备 => HelperRuntime.HasStatus(3845);
-    public static bool 死者之岸预备 => HelperRuntime.HasStatus(3844);
-    public static bool 渡星冲预备 => HelperRuntime.HasStatus(3846);
-    public static bool 幻象冲预备 => HelperRuntime.HasStatus(1243);
-    public static bool 龙威激活 => HelperRuntime.HasStatus(2720);
-    public static bool 武神枪预备 => HelperRuntime.HasStatus(2719);
+    public static bool 龙眼预备 => GameHelper.HasStatus(1863);
+    public static bool 龙炎升预备 => GameHelper.HasStatus(3845);
+    public static bool 死者之岸预备 => GameHelper.HasStatus(3844);
+    public static bool 渡星冲预备 => GameHelper.HasStatus(3846);
+    public static bool 幻象冲预备 => GameHelper.HasStatus(1243);
+    public static bool 龙威激活 => GameHelper.HasStatus(2720);
+    public static bool 武神枪预备 => GameHelper.HasStatus(2719);
 
-    public static bool 群怪模式 => HelperRuntime.GetNearbyEnemyCount(5) >= 3;
+    public static bool 群怪模式 => GameHelper.GetNearbyEnemyCount(5) >= 3;
 
-    public static bool 需要补DOT => HelperRuntime.GetStatusTimeLeftOnTarget(2718) < 3f;
+    public static bool 需要补DOT => GameHelper.GetStatusTimeLeftOnTarget(2718) < 3f;
 
     #endregion
 }

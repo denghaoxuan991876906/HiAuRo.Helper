@@ -191,7 +191,7 @@ public class DNCHelper
 
     #region 量谱
 
-    public static DNCGauge? Gauge => HelperRuntime.GetGauge<DNCGauge>();
+    public static DNCGauge? Gauge => GameHelper.GetGauge<DNCGauge>();
 
     public static byte EspritGauge => Gauge?.Esprit ?? 0;
 
@@ -203,18 +203,18 @@ public class DNCHelper
 
     #region BUFF检测
 
-    public static bool HasTechnicalFinish => HelperRuntime.HasStatus(技巧舞步结束buff);
+    public static bool HasTechnicalFinish => GameHelper.HasStatus(技巧舞步结束buff);
 
-    public static bool HasStandardFinish => HelperRuntime.HasStatus(标准舞步结束buff);
+    public static bool HasStandardFinish => GameHelper.HasStatus(标准舞步结束buff);
 
-    public static bool HasDevilment => HelperRuntime.HasStatus(进攻之探戈buff);
+    public static bool HasDevilment => GameHelper.HasStatus(进攻之探戈buff);
 
     #endregion
 
     #region 辅助方法
 
-        public static bool 双目标 => HelperRuntime.GetNearbyEnemyCount(5) >= 2;
-        public static bool 群怪模式 => HelperRuntime.GetNearbyEnemyCount(5) >= 3;
+        public static bool 双目标 => GameHelper.GetNearbyEnemyCount(5) >= 2;
+        public static bool 群怪模式 => GameHelper.GetNearbyEnemyCount(5) >= 3;
 
     #endregion
 }

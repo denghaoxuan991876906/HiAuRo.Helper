@@ -139,17 +139,17 @@ public class SMNHelper
     #endregion
 
     /// <summary>召唤师职业量谱</summary>
-    public static SMNGauge? Gauge => HelperRuntime.GetGauge<SMNGauge>();
+    public static SMNGauge? Gauge => GameHelper.GetGauge<SMNGauge>();
 
     /// <summary>是否处于巴哈/不死鸟附体状态</summary>
     public static bool IsInBahamut => Gauge?.SummonTimerRemaining > 0;
 
     /// <summary>灼热之光是否激活</summary>
-    public static bool HasSearingLight => HelperRuntime.HasStatus(SearingLight);
+    public static bool HasSearingLight => GameHelper.HasStatus(SearingLight);
 
     /// <summary>以太蓄能是否激活</summary>
-    public static bool HasAethercharge => HelperRuntime.HasStatus(Aethercharge);
+    public static bool HasAethercharge => GameHelper.HasStatus(Aethercharge);
 
     /// <summary>龙神附体是否激活</summary>
-    public static bool HasDreadwyrmTrance => HelperRuntime.HasStatus(DreadwyrmTrance);
+    public static bool HasDreadwyrmTrance => GameHelper.HasStatus(DreadwyrmTrance);
 }

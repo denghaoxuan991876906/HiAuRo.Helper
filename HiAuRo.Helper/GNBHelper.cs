@@ -191,7 +191,7 @@ public class GNBHelper
     #endregion
 
     /// <summary>绝枪战士职业量谱</summary>
-    public static GNBGauge? Gauge => HelperRuntime.GetGauge<GNBGauge>();
+    public static GNBGauge? Gauge => GameHelper.GetGauge<GNBGauge>();
 
     /// <summary>晶壤数量 (0-6)</summary>
     public static byte CartridgeCount => Gauge?.Ammo ?? 0;
@@ -204,27 +204,27 @@ public class GNBHelper
 
     /// <summary>无情是否激活</summary>
     public static bool Has无情 =>
-        HelperRuntime.HasStatus(无情);
+        GameHelper.HasStatus(无情);
 
     /// <summary>王室亲卫是否激活</summary>
     public static bool Has王室亲卫 =>
-        HelperRuntime.HasStatus(王室亲卫);
+        GameHelper.HasStatus(王室亲卫);
 
     /// <summary>残暴弹 (护盾buff) 是否激活</summary>
     public static bool Has残暴弹 =>
-        HelperRuntime.HasStatus(残暴弹);
+        GameHelper.HasStatus(残暴弹);
 
     /// <summary>撕喉预备是否激活</summary>
     public static bool Has撕喉预备 =>
-        HelperRuntime.HasStatus(撕喉预备);
+        GameHelper.HasStatus(撕喉预备);
 
     /// <summary>裂膛预备是否激活</summary>
     public static bool Has裂膛预备 =>
-        HelperRuntime.HasStatus(裂膛预备);
+        GameHelper.HasStatus(裂膛预备);
 
     /// <summary>穿目预备是否激活</summary>
     public static bool Has穿目预备 =>
-        HelperRuntime.HasStatus(穿目预备);
+        GameHelper.HasStatus(穿目预备);
 
     #region 技能
     public const uint 利刃斩 = 16137;
@@ -261,8 +261,8 @@ public class GNBHelper
     #endregion
 
     #region 辅助方法
-        public static bool 续剑激活 => HelperRuntime.HasStatus(1842) || HelperRuntime.HasStatus(1843) || HelperRuntime.HasStatus(1844) || HelperRuntime.HasStatus(3839) || HelperRuntime.HasStatus(2686);
-        public static bool 血壤激活 => HelperRuntime.HasStatus(5051);
-        public static bool 群怪模式 => HelperRuntime.GetNearbyEnemyCount(5) >= 3;
+        public static bool 续剑激活 => GameHelper.HasStatus(1842) || GameHelper.HasStatus(1843) || GameHelper.HasStatus(1844) || GameHelper.HasStatus(3839) || GameHelper.HasStatus(2686);
+        public static bool 血壤激活 => GameHelper.HasStatus(5051);
+        public static bool 群怪模式 => GameHelper.GetNearbyEnemyCount(5) >= 3;
     #endregion
 }

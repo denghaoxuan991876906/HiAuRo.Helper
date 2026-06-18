@@ -193,30 +193,30 @@ public class DRKHelper
 
     #region 辅助方法
 
-    public static bool 血乱激活 => HelperRuntime.HasStatus(3836);
-    public static bool 嗜血激活 => HelperRuntime.HasStatus(BloodWeapon);
+    public static bool 血乱激活 => GameHelper.HasStatus(3836);
+    public static bool 嗜血激活 => GameHelper.HasStatus(BloodWeapon);
     public static bool 暗黑激活 => HasDarkside;
-    public static bool 腐秽大地激活 => HelperRuntime.HasStatus(749);
-    public static bool 蔑视激活 => HelperRuntime.HasStatus(3837);
-    public static bool 群怪模式 => HelperRuntime.GetNearbyEnemyCount(5) >= 3;
+    public static bool 腐秽大地激活 => GameHelper.HasStatus(749);
+    public static bool 蔑视激活 => GameHelper.HasStatus(3837);
+    public static bool 群怪模式 => GameHelper.GetNearbyEnemyCount(5) >= 3;
 
     #endregion
 
     /// <summary>暗黑骑士职业量谱</summary>
-    public static DRKGauge? Gauge => HelperRuntime.GetGauge<DRKGauge>();
+    public static DRKGauge? Gauge => GameHelper.GetGauge<DRKGauge>();
 
     /// <summary>暗血值 (0-100)</summary>
     public static byte BloodGauge => Gauge?.Blood ?? 0;
 
     /// <summary>血乱是否激活</summary>
     public static bool HasDelirium =>
-        HelperRuntime.HasStatus(Delirium);
+        GameHelper.HasStatus(Delirium);
 
     /// <summary>嗜血是否激活</summary>
     public static bool HasBloodWeapon =>
-        HelperRuntime.HasStatus(BloodWeapon);
+        GameHelper.HasStatus(BloodWeapon);
 
     /// <summary>暗黑是否激活</summary>
     public static bool HasDarkside =>
-        HelperRuntime.HasStatus(Darkside);
+        GameHelper.HasStatus(Darkside);
 }

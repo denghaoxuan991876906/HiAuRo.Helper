@@ -85,7 +85,7 @@ if (WARHelper.Has原初的解放)
     ...
 
 // 也可以用英文名（指向同一个 ID）
-if (HelperRuntime.HasStatus(WARHelper.EN.Buffs.InnerRelease))
+if (GameHelper.HasStatus(WARHelper.EN.Buffs.InnerRelease))
     ...
 
 // 技能 ID 同理

@@ -155,7 +155,7 @@ public class WHMHelper
     #endregion
 
     /// <summary>白魔法师职业量谱</summary>
-    public static WHMGauge? Gauge => HelperRuntime.GetGauge<WHMGauge>();
+    public static WHMGauge? Gauge => GameHelper.GetGauge<WHMGauge>();
 
     /// <summary>百合数量</summary>
     public static byte LilyCount => Gauge?.Lily ?? 0;
@@ -165,15 +165,15 @@ public class WHMHelper
 
     /// <summary>神速咏唱是否激活</summary>
     public static bool HasPresenceOfMind =>
-        HelperRuntime.HasStatus(PresenceOfMind);
+        GameHelper.HasStatus(PresenceOfMind);
 
     /// <summary>无中生有是否激活</summary>
     public static bool HasThinAir =>
-        HelperRuntime.HasStatus(ThinAir);
+        GameHelper.HasStatus(ThinAir);
 
     /// <summary>节制是否激活</summary>
     public static bool HasTemperance =>
-        HelperRuntime.HasStatus(Temperance);
+        GameHelper.HasStatus(Temperance);
 
     /// <summary>是否有百合可用</summary>
     public static bool HasLilyReady => LilyCount > 0;

@@ -161,27 +161,27 @@ public class WARHelper
 
     #region 实例属性 — 状态查询
 
-    public static WARGauge? Gauge => HelperRuntime.GetGauge<WARGauge>();
+    public static WARGauge? Gauge => GameHelper.GetGauge<WARGauge>();
     public static byte BeastGauge => Gauge?.BeastGauge ?? 0;
 
-    public static bool HasInnerRelease => HelperRuntime.HasStatus(CN.Buffs.原初的解放);
-    public static bool HasBerserk => HelperRuntime.HasStatus(CN.Buffs.狂暴);
-    public static bool HasSurgingTempest => HelperRuntime.HasStatus(CN.Buffs.战场风暴);
-    public static bool HasNascentChaos => HelperRuntime.HasStatus(CN.Buffs.原初的混沌);
+    public static bool HasInnerRelease => GameHelper.HasStatus(CN.Buffs.原初的解放);
+    public static bool HasBerserk => GameHelper.HasStatus(CN.Buffs.狂暴);
+    public static bool HasSurgingTempest => GameHelper.HasStatus(CN.Buffs.战场风暴);
+    public static bool HasNascentChaos => GameHelper.HasStatus(CN.Buffs.原初的混沌);
 
-    public static bool Has红斩 => HelperRuntime.HasStatus(CN.Buffs.战场风暴);
-    public static bool Has原初的解放 => HelperRuntime.HasStatus(CN.Buffs.原初的解放);
-    public static bool Has狂暴 => HelperRuntime.HasStatus(CN.Buffs.狂暴);
-    public static bool Has原初的混沌 => HelperRuntime.HasStatus(CN.Buffs.原初的混沌);
-    public static bool Has原初的觉悟 => HelperRuntime.HasStatus(CN.Buffs.原初的觉悟);
-    public static bool Has战栗 => HelperRuntime.HasStatus(CN.Buffs.战栗);
-    public static bool Has复仇 => HelperRuntime.HasStatus(CN.Buffs.复仇);
-    public static bool Has死斗 => HelperRuntime.HasStatus(CN.Buffs.死斗);
-    public static bool Has蛮荒崩裂预备 => HelperRuntime.HasStatus(CN.Buffs.蛮荒崩裂预备);
-    public static bool Has尽毁预备 => HelperRuntime.HasStatus(CN.Buffs.尽毁预备);
-    public static bool Has原初的怒震预备 => HelperRuntime.HasStatus(CN.Buffs.原初的怒震预备);
-    public static bool Has原初的血气 => HelperRuntime.HasStatus(CN.Buffs.原初的血气);
-    public static bool Has守护 => HelperRuntime.HasStatus(CN.Buffs.守护);
+    public static bool Has红斩 => GameHelper.HasStatus(CN.Buffs.战场风暴);
+    public static bool Has原初的解放 => GameHelper.HasStatus(CN.Buffs.原初的解放);
+    public static bool Has狂暴 => GameHelper.HasStatus(CN.Buffs.狂暴);
+    public static bool Has原初的混沌 => GameHelper.HasStatus(CN.Buffs.原初的混沌);
+    public static bool Has原初的觉悟 => GameHelper.HasStatus(CN.Buffs.原初的觉悟);
+    public static bool Has战栗 => GameHelper.HasStatus(CN.Buffs.战栗);
+    public static bool Has复仇 => GameHelper.HasStatus(CN.Buffs.复仇);
+    public static bool Has死斗 => GameHelper.HasStatus(CN.Buffs.死斗);
+    public static bool Has蛮荒崩裂预备 => GameHelper.HasStatus(CN.Buffs.蛮荒崩裂预备);
+    public static bool Has尽毁预备 => GameHelper.HasStatus(CN.Buffs.尽毁预备);
+    public static bool Has原初的怒震预备 => GameHelper.HasStatus(CN.Buffs.原初的怒震预备);
+    public static bool Has原初的血气 => GameHelper.HasStatus(CN.Buffs.原初的血气);
+    public static bool Has守护 => GameHelper.HasStatus(CN.Buffs.守护);
 
     #endregion
 
@@ -189,27 +189,27 @@ public class WARHelper
 
     public static float 获取技能最大充能层数(uint spellId)
     {
-        if (spellId == CN.Skills.猛攻) return HelperRuntime.GetCurrentLevel() >= 88 ? 3 : 2;
+        if (spellId == CN.Skills.猛攻) return GameHelper.GetCurrentLevel() >= 88 ? 3 : 2;
         if (spellId == CN.Skills.战嚎) return 2;
         return 1;
     }
 
     public static float 获取爆发期剩余时间()
     {
-        return HelperRuntime.HasStatus(CN.Buffs.原初的觉悟)
-            ? HelperRuntime.GetAuraTimeLeft(CN.Buffs.原初的觉悟) : 0f;
+        return GameHelper.HasStatus(CN.Buffs.原初的觉悟)
+            ? GameHelper.GetAuraTimeLeft(CN.Buffs.原初的觉悟) : 0f;
     }
 
     public static float 获取红斩剩余时间()
     {
-        return HelperRuntime.HasStatus(CN.Buffs.战场风暴)
-            ? HelperRuntime.GetAuraTimeLeft(CN.Buffs.战场风暴) : 0f;
+        return GameHelper.HasStatus(CN.Buffs.战场风暴)
+            ? GameHelper.GetAuraTimeLeft(CN.Buffs.战场风暴) : 0f;
     }
 
     public static int 获取解放层数()
     {
-        if (!HelperRuntime.HasStatus(CN.Buffs.原初的解放)) return 0;
-        return Math.Max(1, HelperRuntime.GetAuraStackCount(CN.Buffs.原初的解放));
+        if (!GameHelper.HasStatus(CN.Buffs.原初的解放)) return 0;
+        return Math.Max(1, GameHelper.GetAuraStackCount(CN.Buffs.原初的解放));
     }
 
     #endregion

@@ -291,7 +291,7 @@ public class PLDHelper
     #region 量谱
 
     /// <summary>骑士职业量谱</summary>
-    public static PLDGauge? Gauge => HelperRuntime.GetGauge<PLDGauge>();
+    public static PLDGauge? Gauge => GameHelper.GetGauge<PLDGauge>();
 
     /// <summary>忠义值 (0-100)</summary>
     public static byte OathGauge => Gauge?.OathGauge ?? 0;
@@ -300,20 +300,20 @@ public class PLDHelper
 
     #region 实例属性 — 状态查询
 
-    public static bool Has战逃反应 => HelperRuntime.HasStatus(_战逃反应);
-    public static bool Has安魂祈祷 => HelperRuntime.HasStatus(_安魂祈祷);
-    public static bool Has神圣魔法效果提高 => HelperRuntime.HasStatus(_神圣魔法效果提高);
-    public static bool Has赎罪剑预备 => HelperRuntime.HasStatus(_赎罪剑预备);
-    public static bool Has祈告剑预备 => HelperRuntime.HasStatus(_祈告剑预备);
-    public static bool Has葬送剑预备 => HelperRuntime.HasStatus(_葬送剑预备);
-    public static bool Has沥血剑预备 => HelperRuntime.HasStatus(_沥血剑预备);
-    public static bool Has荣耀之剑预备 => HelperRuntime.HasStatus(_荣耀之剑预备);
-    public static bool Has圣盾阵 => HelperRuntime.HasStatus(_圣盾阵);
-    public static bool Has预警 => HelperRuntime.HasStatus(_预警);
-    public static bool Has极致护盾 => HelperRuntime.HasStatus(_极致护盾);
-    public static bool Has神圣领域 => HelperRuntime.HasStatus(_神圣领域);
-    public static bool Has壁垒 => HelperRuntime.HasStatus(_壁垒);
-    public static bool Has钢铁信念 => HelperRuntime.HasStatus(_钢铁信念);
+    public static bool Has战逃反应 => GameHelper.HasStatus(_战逃反应);
+    public static bool Has安魂祈祷 => GameHelper.HasStatus(_安魂祈祷);
+    public static bool Has神圣魔法效果提高 => GameHelper.HasStatus(_神圣魔法效果提高);
+    public static bool Has赎罪剑预备 => GameHelper.HasStatus(_赎罪剑预备);
+    public static bool Has祈告剑预备 => GameHelper.HasStatus(_祈告剑预备);
+    public static bool Has葬送剑预备 => GameHelper.HasStatus(_葬送剑预备);
+    public static bool Has沥血剑预备 => GameHelper.HasStatus(_沥血剑预备);
+    public static bool Has荣耀之剑预备 => GameHelper.HasStatus(_荣耀之剑预备);
+    public static bool Has圣盾阵 => GameHelper.HasStatus(_圣盾阵);
+    public static bool Has预警 => GameHelper.HasStatus(_预警);
+    public static bool Has极致护盾 => GameHelper.HasStatus(_极致护盾);
+    public static bool Has神圣领域 => GameHelper.HasStatus(_神圣领域);
+    public static bool Has壁垒 => GameHelper.HasStatus(_壁垒);
+    public static bool Has钢铁信念 => GameHelper.HasStatus(_钢铁信念);
 
     /// <summary>是否有任意赎罪剑预备 (赎罪/祈祷/葬送)</summary>
     public static bool Has任意赎罪剑预备 =>

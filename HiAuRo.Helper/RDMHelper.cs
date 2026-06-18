@@ -161,7 +161,7 @@ public class RDMHelper
     #endregion
 
     /// <summary>赤魔法师职业量谱</summary>
-    public static RDMGauge? Gauge => HelperRuntime.GetGauge<RDMGauge>();
+    public static RDMGauge? Gauge => GameHelper.GetGauge<RDMGauge>();
 
     /// <summary>白魔元 (0-100)</summary>
     public static byte WhiteMana => Gauge?.WhiteMana ?? 0;
@@ -176,17 +176,17 @@ public class RDMHelper
     public static bool CanMeleeCombo => WhiteMana >= 50 && BlackMana >= 50;
 
     /// <summary>鼓励是否激活</summary>
-    public static bool HasEmbolden => HelperRuntime.HasStatus(Embolden);
+    public static bool HasEmbolden => GameHelper.HasStatus(Embolden);
 
     /// <summary>倍增是否激活</summary>
-    public static bool HasManafication => HelperRuntime.HasStatus(Manafication);
+    public static bool HasManafication => GameHelper.HasStatus(Manafication);
 
     /// <summary>促进是否激活</summary>
-    public static bool HasAcceleration => HelperRuntime.HasStatus(Acceleration);
+    public static bool HasAcceleration => GameHelper.HasStatus(Acceleration);
 
     /// <summary>赤飞石预备是否激活</summary>
-    public static bool HasVerstoneReady => HelperRuntime.HasStatus(VerstoneReady);
+    public static bool HasVerstoneReady => GameHelper.HasStatus(VerstoneReady);
 
     /// <summary>赤火炎预备是否激活</summary>
-    public static bool HasVerfireReady => HelperRuntime.HasStatus(VerfireReady);
+    public static bool HasVerfireReady => GameHelper.HasStatus(VerfireReady);
 }

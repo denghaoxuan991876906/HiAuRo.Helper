@@ -147,7 +147,7 @@ public class NINHelper
     public const uint Bunshin = 1954;           // 分身之术
 
     /// <summary>忍者职业量谱</summary>
-    public static NINGauge? Gauge => HelperRuntime.GetGauge<NINGauge>();
+    public static NINGauge? Gauge => GameHelper.GetGauge<NINGauge>();
 
     /// <summary>忍气值</summary>
     public static byte Ninki => Gauge?.Ninki ?? 0;
@@ -156,11 +156,11 @@ public class NINHelper
     public static bool HasMaxNinki => Ninki >= 100;
 
     /// <summary>生杀予夺是否激活</summary>
-    public static bool HasKassatsu => HelperRuntime.HasStatus(Kassatsu);
+    public static bool HasKassatsu => GameHelper.HasStatus(Kassatsu);
 
     /// <summary>天地人是否激活</summary>
-    public static bool HasTenChiJin => HelperRuntime.HasStatus(TenChiJin);
+    public static bool HasTenChiJin => GameHelper.HasStatus(TenChiJin);
 
     /// <summary>分身之术是否激活</summary>
-    public static bool HasBunshin => HelperRuntime.HasStatus(Bunshin);
+    public static bool HasBunshin => GameHelper.HasStatus(Bunshin);
 }

@@ -204,20 +204,20 @@ public class VPRHelper
     public const uint HonedReavers = 3772;      // 穿裂强化
 
     /// <summary>蝰蛇剑士职业量谱</summary>
-    public static VPRGauge? Gauge => HelperRuntime.GetGauge<VPRGauge>();
+    public static VPRGauge? Gauge => GameHelper.GetGauge<VPRGauge>();
 
     /// <summary>猎人直觉是否激活</summary>
-    public static bool HasHuntersInstinct => HelperRuntime.HasStatus(HuntersInstinct);
+    public static bool HasHuntersInstinct => GameHelper.HasStatus(HuntersInstinct);
 
     /// <summary>疾速之牙是否激活</summary>
-    public static bool HasSwiftscaled => HelperRuntime.HasStatus(Swiftscaled);
+    public static bool HasSwiftscaled => GameHelper.HasStatus(Swiftscaled);
 
     /// <summary>祖灵附体是否激活</summary>
-    public static bool HasReawakened => HelperRuntime.HasStatus(Reawakened);
+    public static bool HasReawakened => GameHelper.HasStatus(Reawakened);
 
     /// <summary>侧击强化毒是否激活</summary>
-    public static bool HasFlankstingReady => HelperRuntime.HasStatus(FlankstingReady);
+    public static bool HasFlankstingReady => GameHelper.HasStatus(FlankstingReady);
 
     /// <summary>侧裂强化毒是否激活</summary>
-    public static bool HasFlanksbaneReady => HelperRuntime.HasStatus(FlanksbaneReady);
+    public static bool HasFlanksbaneReady => GameHelper.HasStatus(FlanksbaneReady);
 }

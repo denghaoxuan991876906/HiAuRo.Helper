@@ -199,15 +199,15 @@ public class BLMHelper
 
     #region BUFF检测
 
-    public static bool Has醒梦 => HelperRuntime.HasStatus(醒梦buff);
-    public static bool Has即刻 => HelperRuntime.HasStatus(即刻buff);
-    public static bool Has沉稳 => HelperRuntime.HasStatus(沉稳buff);
-    public static bool Has魔罩 => HelperRuntime.HasStatus(魔罩buff);
-    public static bool Has三连 => HelperRuntime.HasStatus(三连buff);
-    public static bool Has雷云 => HelperRuntime.HasStatus(雷云buff);
-    public static bool Has火苗 => HelperRuntime.HasStatus(火苗buff);
-    public static bool Has魔纹存在 => HelperRuntime.HasStatus(魔纹存在buff);
-    public static bool Has魔纹加速 => HelperRuntime.HasStatus(魔纹加速buff);
+    public static bool Has醒梦 => GameHelper.HasStatus(醒梦buff);
+    public static bool Has即刻 => GameHelper.HasStatus(即刻buff);
+    public static bool Has沉稳 => GameHelper.HasStatus(沉稳buff);
+    public static bool Has魔罩 => GameHelper.HasStatus(魔罩buff);
+    public static bool Has三连 => GameHelper.HasStatus(三连buff);
+    public static bool Has雷云 => GameHelper.HasStatus(雷云buff);
+    public static bool Has火苗 => GameHelper.HasStatus(火苗buff);
+    public static bool Has魔纹存在 => GameHelper.HasStatus(魔纹存在buff);
+    public static bool Has魔纹加速 => GameHelper.HasStatus(魔纹加速buff);
 
     #endregion
 
@@ -217,15 +217,15 @@ public class BLMHelper
 
     public static bool 补dot()
     {
-        var level = HelperRuntime.GetCurrentLevel();
+        var level = GameHelper.GetCurrentLevel();
         if (level >= 92)
         {
-            var time = Math.Max(HelperRuntime.GetStatusTimeLeftOnTarget(3871), HelperRuntime.GetStatusTimeLeftOnTarget(3872));
+            var time = Math.Max(GameHelper.GetStatusTimeLeftOnTarget(3871), GameHelper.GetStatusTimeLeftOnTarget(3872));
             return time < 3f;
         }
         if (level >= 45)
         {
-            var time = Math.Max(HelperRuntime.GetStatusTimeLeftOnTarget(163), HelperRuntime.GetStatusTimeLeftOnTarget(1210));
+            var time = Math.Max(GameHelper.GetStatusTimeLeftOnTarget(163), GameHelper.GetStatusTimeLeftOnTarget(1210));
             return time < 3f;
         }
         return false;
@@ -233,12 +233,12 @@ public class BLMHelper
 
     public static bool 三目标aoe()
     {
-        return HelperRuntime.GetEnemyCountNearTarget(5) >= 3;
+        return GameHelper.GetEnemyCountNearTarget(5) >= 3;
     }
 
     public static bool 双目标aoe()
     {
-        var count = HelperRuntime.GetEnemyCountNearTarget(5);
+        var count = GameHelper.GetEnemyCountNearTarget(5);
         return count >= 2 && count < 3;
     }
 
@@ -254,7 +254,7 @@ public class BLMHelper
     #endregion
     
     /// <summary>黑魔法师职业量谱</summary>
-    public static BLMGauge Gauge => HelperRuntime.GetGauge<BLMGauge>();
+    public static BLMGauge Gauge => GameHelper.GetGauge<BLMGauge>();
 
     /// <summary>是否处于星极火状态</summary>
     public static bool 火状态 => Gauge.InAstralFire;

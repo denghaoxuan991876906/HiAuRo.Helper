@@ -132,7 +132,7 @@ public class SCHHelper
     #endregion
 
     /// <summary>学者职业量谱</summary>
-    public static SCHGauge? Gauge => HelperRuntime.GetGauge<SCHGauge>();
+    public static SCHGauge? Gauge => GameHelper.GetGauge<SCHGauge>();
 
     /// <summary>以太超流层数</summary>
     public static byte AetherflowCount => Gauge?.Aetherflow ?? 0;
@@ -142,17 +142,17 @@ public class SCHHelper
 
     /// <summary>连环计是否激活</summary>
     public static bool HasChainStratagem =>
-        HelperRuntime.HasStatus(ChainStratagem);
+        GameHelper.HasStatus(ChainStratagem);
 
     /// <summary>转化是否激活</summary>
     public static bool HasRecitation =>
-        HelperRuntime.HasStatus(Recitation);
+        GameHelper.HasStatus(Recitation);
 
     /// <summary>疾风怒涛之计是否激活</summary>
     public static bool HasExpedient =>
-        HelperRuntime.HasStatus(Expedient);
+        GameHelper.HasStatus(Expedient);
 
     /// <summary>炽天炽翼是否激活</summary>
     public static bool HasSeraphism =>
-        HelperRuntime.HasStatus(Seraphism);
+        GameHelper.HasStatus(Seraphism);
 }

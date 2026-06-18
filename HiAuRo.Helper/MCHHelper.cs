@@ -220,7 +220,7 @@ public class MCHHelper
 
     /// <summary>机工士职业量谱</summary>
     public static Dalamud.Game.ClientState.JobGauge.Types.MCHGauge? Gauge
-        => HelperRuntime.GetGauge<Dalamud.Game.ClientState.JobGauge.Types.MCHGauge>();
+        => GameHelper.GetGauge<Dalamud.Game.ClientState.JobGauge.Types.MCHGauge>();
 
     /// <summary>热量 (0-100)</summary>
     public static byte HeatGauge => Gauge?.Heat ?? 0;
@@ -235,11 +235,11 @@ public class MCHHelper
     public static bool CanSummonQueen => BatteryGauge >= 50;
 
     /// <summary>整备是否激活</summary>
-    public static bool HasReassembled => HelperRuntime.HasStatus(整备buff);
+    public static bool HasReassembled => GameHelper.HasStatus(整备buff);
 
     /// <summary>野火是否激活</summary>
-    public static bool HasWildfire => HelperRuntime.HasStatus(野火buff);
+    public static bool HasWildfire => GameHelper.HasStatus(野火buff);
 
     /// <summary>过热是否激活</summary>
-    public static bool HasHypercharge => HelperRuntime.HasStatus(过热buff);
+    public static bool HasHypercharge => GameHelper.HasStatus(过热buff);
 }

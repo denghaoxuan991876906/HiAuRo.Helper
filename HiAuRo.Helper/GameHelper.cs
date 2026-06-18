@@ -5,10 +5,10 @@ using OmenTools.Dalamud.Services.ObjectTable.Abstractions.ObjectKinds;
 namespace HiAuRo.Helper;
 
 /// <summary>
-/// Helper 运行时数据入口 —— 全部通过 HiAuRo.Sdk 暴露的 public API 原生访问，
-/// 不再依赖宿主反射注入的上下文。静态 API 开箱即用，无需 Initialize。
+/// 游戏数据查询入口 —— 全部通过 HiAuRo.Sdk 暴露的 public API 原生访问。
+/// 无状态、静态 API 开箱即用，无需任何初始化。
 /// </summary>
-public static class HelperRuntime
+public static class GameHelper
 {
     // ── Buff / 状态查询 ──
 

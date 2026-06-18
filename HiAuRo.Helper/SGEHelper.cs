@@ -165,7 +165,7 @@ public class SGEHelper
     #endregion
 
     /// <summary>贤者职业量谱</summary>
-    public static SGEGauge? Gauge => HelperRuntime.GetGauge<SGEGauge>();
+    public static SGEGauge? Gauge => GameHelper.GetGauge<SGEGauge>();
 
     /// <summary>蛇刺数量</summary>
     public static byte AdderstingCount => Gauge?.Addersting ?? 0;
@@ -175,17 +175,17 @@ public class SGEHelper
 
     /// <summary>均衡状态是否激活</summary>
     public static bool HasEukrasiaStatus =>
-        HelperRuntime.HasStatus(Eukrasia);
+        GameHelper.HasStatus(Eukrasia);
 
     /// <summary>泛输血是否激活</summary>
     public static bool HasHaima =>
-        HelperRuntime.HasStatus(Haima);
+        GameHelper.HasStatus(Haima);
 
     /// <summary>整体论是否激活</summary>
     public static bool HasPanhaima =>
-        HelperRuntime.HasStatus(Panhaima);
+        GameHelper.HasStatus(Panhaima);
 
     /// <summary>自生是否激活</summary>
     public static bool HasPhysis =>
-        HelperRuntime.HasStatus(Physis);
+        GameHelper.HasStatus(Physis);
 }
