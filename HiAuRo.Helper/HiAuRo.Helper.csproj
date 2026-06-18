@@ -6,10 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>CS1591</NoWarn>
+    <NoWarn>CS1591;CA1416</NoWarn>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <DisableDalamudPackager>true</DisableDalamudPackager>
     <RootNamespace>HiAuRo.Helper</RootNamespace>
     <AssemblyName>HiAuRo.Helper</AssemblyName>
@@ -22,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HiAuRo.Sdk" Version="0.2.11">
+    <PackageReference Include="HiAuRo.Sdk" Version="*">
       <ExcludeAssets>runtime</ExcludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

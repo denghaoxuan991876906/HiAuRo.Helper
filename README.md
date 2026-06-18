@@ -24,11 +24,11 @@ dotnet build HiAuRo.Helper.slnx -c Debug
 
 ### 1. 引用 HiAuRo.Sdk
 
-ACR 项目必须先引用与宿主匹配的 `HiAuRo.Sdk`。`ExcludeAssets="runtime"` 确保运行时使用 HiAuRo 宿主已加载的程序集，避免 ACR 目录携带第二份 `HiAuRo.dll`。
+ACR 项目必须先引用与宿主匹配的 `HiAuRo.Sdk`。`ExcludeAssets="runtime"` 确保运行时使用 HiAuRo 宿主已加载的程序集，避免 ACR 目录携带第二份 `HiAuRo.dll`。版本用 `*` 浮动，自动跟随 nuget.org 上游更新（破坏性改动会在编译期暴露，便于及时跟进；追求稳定的 ACR 也可收窄为 `0.2.*`）。
 
 ```xml
 <ItemGroup>
-    <PackageReference Include="HiAuRo.Sdk" Version="0.2.11">
+    <PackageReference Include="HiAuRo.Sdk" Version="*">
         <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
 </ItemGroup>
