@@ -178,7 +178,7 @@ public class BLMHelper
     public const uint 魔纹重置 = 36988;
     public const uint 昏乱 = 7560;
     public const uint 醒梦 = 7562;
-    public const uint 即可咏唱 = 7561;
+    public const uint 即刻咏唱 = 7561;
     public const uint 沉稳咏唱 = 7559;
 
     #endregion
