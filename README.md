@@ -84,8 +84,8 @@ using HiAuRo.Helper;
 if (WARHelper.Has原初的解放)
     ...
 
-// 也可以用英文名（指向同一个 ID）
-if (GameHelper.HasStatus(WARHelper.EN.Buffs.InnerRelease))
+// ID 支持扩展方法点调用；英文名指向同一个 ID
+if (WARHelper.EN.Buffs.InnerRelease.HasStatus())
     ...
 
 // 技能 ID 同理

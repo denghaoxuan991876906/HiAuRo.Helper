@@ -12,21 +12,21 @@ public static class GameHelper
 {
     // ── Buff / 状态查询 ──
 
-    public static bool HasStatus(uint statusId) =>
+    public static bool HasStatus(this uint statusId) =>
         AuraHelper.HasSelfAura(statusId);
 
-    public static bool HasStatusOnTarget(uint statusId) =>
+    public static bool HasStatusOnTarget(this uint statusId) =>
         AuraHelper.HasTargetAura(statusId);
 
-    public static float GetStatusTimeLeftOnTarget(uint statusId) =>
+    public static float GetStatusTimeLeftOnTarget(this uint statusId) =>
         AuraHelper.GetAuraTimeLeft(Data.Target.Current, statusId);
 
     /// <summary>自身 buff 剩余时间（秒）</summary>
-    public static float GetAuraTimeLeft(uint buffId) =>
+    public static float GetAuraTimeLeft(this uint buffId) =>
         AuraHelper.GetAuraTimeLeft(Data.Me.Object, buffId);
 
     /// <summary>自身 buff 层数</summary>
-    public static int GetAuraStackCount(uint buffId)
+    public static int GetAuraStackCount(this uint buffId)
     {
         if (Data.Me.Object is not IBattleChara bc) return 0;
         foreach (var s in bc.StatusList)
@@ -44,11 +44,11 @@ public static class GameHelper
     // ── CD 查询 ──
 
     /// <summary>技能当前充能层数</summary>
-    public static float GetCharges(uint spellId) =>
+    public static float GetCharges(this uint spellId) =>
         SpellHelper.GetCharges(spellId);
 
     /// <summary>技能剩余冷却时间（毫秒）</summary>
-    public static float GetCooldownRemaining(uint spellId) =>
+    public static float GetCooldownRemaining(this uint spellId) =>
         SpellHelper.GetCooldownRemaining(spellId);
 
     // ── Combo / GCD ──
@@ -64,7 +64,7 @@ public static class GameHelper
     // ── 技能历史 ──
 
     /// <summary>技能是否在最近 <paramref name="ms"/> 毫秒内使用过</summary>
-    public static bool RecentlyUsedSpell(uint spellId, int ms) =>
+    public static bool RecentlyUsedSpell(this uint spellId, int ms) =>
         SpellHistoryHelper.RecentlyUsed(spellId, ms);
 
     // ── 战斗状态 ──
