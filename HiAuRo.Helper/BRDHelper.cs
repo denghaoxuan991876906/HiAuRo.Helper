@@ -153,10 +153,18 @@ public class BRDHelper
     /// <summary>诗人职业量谱</summary>
     public static BRDGauge? Gauge => GameHelper.GetGauge<BRDGauge>();
 
-    /// <summary>当前歌曲类型</summary>
+    /// <summary>
+    /// 当前歌曲类型：<see cref="Song.None"/>（无歌曲 / None）、
+    /// <see cref="Song.MagesBallad"/>（贤者的叙事谣 / Mage's Ballad）、
+    /// <see cref="Song.ArmysPaeon"/>（军神的赞美歌 / Army's Paeon）、
+    /// <see cref="Song.WanderersMinuet"/>（放浪神的小步舞曲 / The Wanderer's Minuet）。
+    /// </summary>
     public static Song CurrentSong => Gauge?.Song ?? Song.None;
 
-    /// <summary>歌曲剩余时间 (ms)</summary>
+    /// <summary>上一次播放的歌曲类型</summary>
+    public static Song LastSong => Gauge?.LastSong ?? Song.None;
+
+    /// <summary>歌曲剩余时间（毫秒）</summary>
     public static ushort SongTimer => Gauge?.SongTimer ?? 0;
 
     /// <summary>乐章层数</summary>

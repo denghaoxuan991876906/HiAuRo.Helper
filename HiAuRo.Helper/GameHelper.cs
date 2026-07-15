@@ -18,6 +18,7 @@ public static class GameHelper
     public static bool HasStatusOnTarget(this uint statusId) =>
         AuraHelper.HasTargetAura(statusId);
 
+    /// <summary>当前目标指定状态的剩余时间（秒）</summary>
     public static float GetStatusTimeLeftOnTarget(this uint statusId) =>
         AuraHelper.GetAuraTimeLeft(Data.Target.Current, statusId);
 

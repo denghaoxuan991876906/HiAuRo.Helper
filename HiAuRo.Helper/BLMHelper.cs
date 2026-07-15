@@ -268,6 +268,7 @@ public class BLMHelper
     public static uint 通晓数 => Gauge.PolyglotStacks;
     public static bool 悖论指示 => Gauge.IsParadoxActive;
     public static bool 天语状态 => Gauge.IsEnochianActive;
+    /// <summary>通晓计时（毫秒）</summary>
     public static short 通晓计时 => Gauge.EnochianTimer;
     
 }

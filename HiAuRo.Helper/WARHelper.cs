@@ -194,12 +194,14 @@ public class WARHelper
         return 1;
     }
 
+    /// <summary>爆发期剩余时间（秒）</summary>
     public static float 获取爆发期剩余时间()
     {
         return GameHelper.HasStatus(CN.Buffs.原初的觉悟)
             ? GameHelper.GetAuraTimeLeft(CN.Buffs.原初的觉悟) : 0f;
     }
 
+    /// <summary>战场风暴（红斩）剩余时间（秒）</summary>
     public static float 获取红斩剩余时间()
     {
         return GameHelper.HasStatus(CN.Buffs.战场风暴)
